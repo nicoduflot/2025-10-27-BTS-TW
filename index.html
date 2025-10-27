@@ -152,11 +152,13 @@
                 <figure>
                     <blockquote class="blockquote">
                         <p>
-                            Marcher d’un même pas c'est l'objectif du despotisme et de la tyranie. Les hommes libres,eux, vont dans tout les sens.
+                            Marcher d’un même pas c'est l'objectif du despotisme et de la tyranie. Les hommes
+                            libres,eux, vont dans tout les sens.
                         </p>
                     </blockquote>
                     <figcaption class="blockquote-footer">
-                        Seigneur Vétérini dans le roman <cite title='"La vérité" par Terry Pratchett'>"La vérité" de Terry Pratchett</cite>
+                        Seigneur Vétérini dans le roman <cite title='"La vérité" par Terry Pratchett'>"La vérité" de
+                            Terry Pratchett</cite>
                     </figcaption>
                 </figure>
             </div>
@@ -166,47 +168,271 @@
                         <h2>Les tableaux</h2>
                     </header>
                     <p>
-                        Le reboot css de Bootstrap règle les problèmes d'affichage des tableaux dûs au CSS du navigateur. En ajoutant la classe "table", la présentation de base est améliorée.
+                        Le reboot css de Bootstrap règle les problèmes d'affichage des tableaux dûs au CSS du
+                        navigateur. En ajoutant la classe "table", la présentation de base est améliorée.
                     </p>
-                    <table class="table">
-                        <caption>Un tableau bootstrap avec la classe "table"</caption>
-                        <thead>
-                            <tr>
-                                <th>N°</th>
-                                <th>Prénom</th>
-                                <th>Nom</th>
-                                <th>Login</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>1</th>
-                                <td>Nicolas</td>
-                                <td>Duflot</td>
-                                <td>nduflot</td>
-                            </tr>
-                            <tr>
-                                <th>2</th>
-                                <td>Mickey</td>
-                                <td>Mulot</td>
-                                <td>mmulot</td>
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <td>Darren</td>
-                                <td>Arronovsky</td>
-                                <td>darronovsky</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>N°</th>
-                                <th>Prénom</th>
-                                <th>Nom</th>
-                                <th>Login</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <caption>Un tableau bootstrap avec la classe "table"</caption>
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Login</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <td>Nicolas</td>
+                                    <td>Duflot</td>
+                                    <td>nduflot</td>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <td>Mickey</td>
+                                    <td>Mulot</td>
+                                    <td>mmulot</td>
+                                </tr>
+                                <tr>
+                                    <th>3</th>
+                                    <td>Darren</td>
+                                    <td>Arronovsky</td>
+                                    <td>darronovsky</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Login</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <p>
+                        Il est possible de changer les couleurs, l'apparence, et d'ajouter des bordures aux tableaux en
+                        utilisant les classes Bootstrap
+                    </p>
+                    <p>
+                        Tout comme les couleurs, les mots clefs "primary", "secondary", "dark", "success", "danger",
+                        etc. permettront d'influer sur les couleurs de fond des tableaux.
+                    </p>
+                    <p>
+                        Il est possible d'agir au niveau du tableau en entier, sur une ligne ou sur une cellule.
+                    </p>
+                </article>
+                <table class="table">
+                    <caption>Différentes classes sur les différentes parties du tableau</caption>
+                    <tr class="table-warning">
+                        <th>La ligne est en warning</th>
+                        <td>
+                            La ligne <code>&lt;tr&gt;</code> étant en warning, <code>&lt;th&gt;</code> et
+                            <code>&lt;td&gt;</code> sont en warning</code>
+                        </td>
+                        <td class="table-primary">
+                            Cette <code>&lt;td&gt;</code> à la classe "table-primary" qui surcharge l'héritage de la
+                            classe apposée à <code>&lt;tr&gt;</code>
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    Il est possible d'appliquer une couleur de fond qui alterne une ligne sur deux avec la classe
+                    "table-striped". Les couleurs choisie seront en relation avec la couleur apposée au tableau en
+                    entier.
+                </p>
+                <p>
+                    Attention avec les cellules "fusionnées" sur les lignes
+                </p>
+                <table class="table table-striped">
+                    <caption>Un tableau avec "table-striped"</caption>
+                    <tr>
+                        <th>Entête de colonne</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Ligne suivante changement de couleur de fond</th>
+                        <td>Une cellule</td>
+                        <td rowspan="2">Cellulle "fusionnée" sur deux lignes</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Ligne suivante</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                </table>
+                <p>
+                    Un autre exemple
+                </p>
+                <table class="table table-primary table-striped">
+                    <caption>Un tableau avec "table-striped"</caption>
+                    <tr>
+                        <th>Entête de colonne</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Ligne suivante changement de couleur de fond</th>
+                        <td>Une cellule</td>
+                        <td rowspan="2">Cellulle "fusionnée" sur deux lignes</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Ligne suivante</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                </table>
+                <p>
+                    Les rayures sont applicables sur les colonnes
+                </p>
+                <table class="table table-striped-columns">
+                    <caption>Un tableau avec "table-striped"</caption>
+                    <tr>
+                        <th>Entête de colonne</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Entête de colonne</th>
+                        <td>Une cellule</td>
+                        <td colspan="2">Une cellule "fusionnée" sur deux colonnes</td>
+                    </tr>
+                </table>
+                <p>
+                    Les bordures peuvent être ajoutées comme pour les éléments à l'aide de la classe border et ses
+                    dérivations
+                </p>
+                <table class="table table-bordered">
+                    <caption>Un tableau avec "table-striped"</caption>
+                    <tr class="border-primary">
+                        <th>Entête de colonne</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Entête de colonne</th>
+                        <td class="border-danger">Une cellule</td>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <article>
+                    <header>
+                        <h2>Les formulaires</h2>
+                    </header>
+                    <p>
+                        Les formulaires comportent toute une liste de classes qui permettent de mettre facilement en
+                        forme
+                        les champs de saisie.<br />
+                        De plus, Bootstrap permet de customiser les contrôles de formulaires, et cela automatiquement
+                        grâce
+                        au JS, et à l'utilisation des classes adéquates.
+                    </p>
+                    <form class="row needs-validation" novalidate>
+                        <div class="col-sm-6">
+                            <label for="civilite" class="form-label w-100">
+                                Civilité
+                            </label>
+                            <select class="form-select mb-2" id="civilite" aria-describedby="info-civilite">
+                                <option value="N" selected>Non communiqué</option>
+                                <option value="H">Homme</option>
+                                <option value="F">Femme</option>
+                            </select>
+                            <div id="info-civilite" class="alert alert-primary">
+                                <small>Indiquez votre civilité si le désirez, ce champ n'est pas
+                                    obligatoire</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group my-2">
+                                <label class="input-group-text">@</label>
+                                <input class="form-control" type="email" name="email" id="email"
+                                    aria-label="Adresse email" aria-describedby="info-email" required />
+                                <div class="invalid-feedback">
+                                    Veuillez entrer votre email
+                                </div>
+                            </div>
+                            <div id="info-email" class="alert alert-primary">
+                                <small>Indiquez votre email, ce champ est obligatoire</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="nom">Nom de famille</label>
+                            <input class="form-control my-2" type="text" name="nom" id="nom" aria-describedby="info-nom"
+                                required />
+                            <div class="invalid-feedback">
+                                Veuillez entrer votre nom de famille
+                            </div>
+                            <div id="info-nom" class="alert alert-primary">
+                                <small>Indiquez votre nom de famille, ce champ est obligatoire</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="prenom">Prénom</label>
+                            <input class="form-control my-2" type="text" name="prenom" id="prenom"
+                                aria-describedby="info-prenom" />
+                            <div id="info-prenom" class="alert alert-primary">
+                                <small>Indiquez votre prénom de famille, ce champ n'est pas obligatoire</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="form-check">
+                                <input type="checkbox" name="opt01" id="opt01" class="form-check-input" />
+                                <label class="form-check-label" for="opt01">Ajouter l'option 1</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" name="opt02" id="opt02" class="form-check-input" />
+                                <label class="form-check-label" for="opt02">Ajouter l'option 2</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 mb-2">
+                                <label class="form-label">Votre message</label>
+                                <textarea class="form-control" aria-label="Votre Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-2">
+                            <button class="btn btn-sm btn-outline-success" type="submit">Envoyer</button>
+                            <button class="btn btn-sm btn-outline-warning" type="reset">Effacer</button>
+                            <button class="btn btn-sm btn-outline-secondary" type="button">Bouton</button>
+                        </div>
+                    </form>
+                    <script>
+                        /*
+                        les fonctions javascript auto-éxécutée :
+                        la forme : 
+                        ()();
+
+                        ( la fonction anonyme a executer automatiquement )
+                        ( les attribus a envoyer à la fonction ci-dessus )
+                        */
+
+                        (() => {
+                            'use strict';
+                            const forms = document.querySelectorAll('.needs-validation');
+                            forms.forEach(form => {
+                                form.addEventListener('submit', (event) => {
+                                    if (!form.checkValidity()) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
+
+                                    form.classList.add('was-validated');
+                                }, false);
+                            })
+                        })
+                            ();
+                    </script>
                 </article>
             </div>
         </section>
