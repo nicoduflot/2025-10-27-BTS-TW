@@ -2,7 +2,7 @@
 
 ## Bootstrap
 
-* [Installer bootstrap](./01-installation.md)
+* Installer bootstrap
 * Utiliser bootstrap : les classes utilitaires
 * Utiliser Bootstrap : les composants
 * Surcharger Bootstrap : fichier CSS
@@ -14,6 +14,6 @@
 
 ## Tailwind
 
-* Installer Tailwind
+* [Installer Tailwind](./tailwind-01-installation.md)
 * Lancer le watcher et premières modifications
 * Utiliser des composants
