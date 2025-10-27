@@ -6,7 +6,14 @@ En allant sur le site de [bootstrap](https://getbootstrap.com/), dans la partie 
 
 Dans le projet, ajouter les fichiers désirés css et les lier aux pages a utiliser, par exemple, pour avoir bootstrap en complet il faut le fichier ```bootstrap.css```, mais si seulement le reset CSS est nécéssaire, le fichier ```bootstrap-reboot.css```.
 
-Pour pouvoir utiliser les interactions utilisataurs, il faut récupérer le fichier ```bootstrap-bundle.css```
+Pour pouvoir utiliser les interactions utilisateurs, il faut récupérer le fichier ```bootstrap-bundle.css```
+
+Enfin, lier les fichiers aux pages d'utilisation
+
+```html
+<link rel="stylesheet" href="./css/bootstrap.css" />
+<script src="./js/bootstrap.bundle.js"></script>
+```
 
 ## Utiliser un gestionnaire de paquets
 
