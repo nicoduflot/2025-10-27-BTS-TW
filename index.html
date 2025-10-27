@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap & Tailwind - Introduction à Bootstrap</title>
     <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/bootstrap-icons.css" />
     <script src="./js/bootstrap.bundle.js"></script>
 </head>
 
@@ -400,40 +401,39 @@
                             <label class="form-label">Votre message</label>
                             <textarea class="form-control" aria-label="Votre Message"></textarea>
                         </div>
-            </div>
-            <div class="col-12 mb-2">
-                <button class="btn btn-sm btn-outline-success" type="submit">Envoyer</button>
-                <button class="btn btn-sm btn-outline-warning" type="reset">Effacer</button>
-                <button class="btn btn-sm btn-outline-secondary" type="button">Bouton</button>
-            </div>
-            </form>
-            <script>
-                /*
-                les fonctions javascript auto-éxécutée :
-                la forme : 
-                ()();
+                        <div class="col-12 mb-2">
+                            <button class="btn btn-sm btn-outline-success" type="submit">Envoyer</button>
+                            <button class="btn btn-sm btn-outline-warning" type="reset">Effacer</button>
+                            <button class="btn btn-sm btn-outline-secondary" type="button">Bouton</button>
+                        </div>
+                    </form>
+                    <script>
+                        /*
+                        les fonctions javascript auto-éxécutée :
+                        la forme : 
+                        ()();
+        
+                        ( la fonction anonyme a executer automatiquement )
+                        ( les attribus a envoyer à la fonction ci-dessus )
+                        */
 
-                ( la fonction anonyme a executer automatiquement )
-                ( les attribus a envoyer à la fonction ci-dessus )
-                */
+                        (() => {
+                            'use strict';
+                            const forms = document.querySelectorAll('.needs-validation');
+                            forms.forEach(form => {
+                                form.addEventListener('submit', (event) => {
+                                    if (!form.checkValidity()) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
 
-                (() => {
-                    'use strict';
-                    const forms = document.querySelectorAll('.needs-validation');
-                    forms.forEach(form => {
-                        form.addEventListener('submit', (event) => {
-                            if (!form.checkValidity()) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-
-                            form.classList.add('was-validated');
-                        }, false);
-                    })
-                })
-                    ();
-            </script>
-            </article>
+                                    form.classList.add('was-validated');
+                                }, false);
+                            })
+                        })
+                            ();
+                    </script>
+                </article>
             </div>
         </section>
         <section class="row">
@@ -497,16 +497,173 @@
                     <p>
                         On peut aussi centrer l'image à l'aide de la classe "mx-auto" et "d-block"
                     </p>
-                    <img src="./images/batman-b-timm-b-w.png" class="img-thumbnail mx-auto d-block img-fluid" style="max-width: 250px;" />
+                    <img src="./images/batman-b-timm-b-w.png" class="img-thumbnail mx-auto d-block img-fluid"
+                        style="max-width: 250px;" />
                 </article>
             </div>
             <div class="col-lg-6">
                 <article>
                     <header>
-                        <h3>Les vidéos</h3>
+                        <h3>Les vidéos externes</h3>
                     </header>
-                    
+                    <p>
+                        Dans le cas de vidéo hébergée sur une site tier, tels que youtube, viméo ou dailymotion, il
+                        faudra
+                        selon certain cas faire quelques ajustement.
+                    </p>
+                    <p>
+                        Les vidéos sont partagées grace à une balise <code>&lt;iframe&gt;</code> qui permet d'importer
+                        dans
+                        la page une autre page. Sur les sité d'hébergement de vidéos, une page particulière est
+                        partageable
+                        via une iframe, la vidéo est ensuite appelée dedans.
+                    </p>
+                    <h3>Youtube</h3>
+                    <p>
+                        Quand vous partager une vidéo youtube, vous obtenez généralement le code suivant :
+                    </p>
+                    <code><pre>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/j-Chh4SRjwE?si=uCwb_GBtQdvl2mHh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</pre></code>
+                    <p>
+                        Il est donc interressant d'utiliser une iframe mais qui sera encapsulée dans un conteneur, une
+                        figure, et à cette figure on ajoute deux classes bootstrap : ratio et ratio-16x9 par exemple
+                        pour
+                        une vidéo 16 / 9<sup>ème</sup>
+                    </p>
+                    <p>
+                        Dans cette figure, il suffit de coller l'iframe donnée par youtube en retirant les attributs
+                        width
+                        et height
+                    </p>
+                    <figure class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/j-Chh4SRjwE?si=uCwb_GBtQdvl2mHh"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </figure>
                 </article>
+            </div>
+            <div class="col-lg-6">
+                <header>
+                    <h3>Les vidéos hébergées</h3>
+                </header>
+                <p>
+                    Pour les vidéos déjà hébergées sur le site, il suffit d'utiliser la classe <code></code>
+                </p>
+                <figure>
+                    <video class="img-fluid" src="./media/video/Fallout-4-Launch-Trailer.mp4" controls></video>
+                </figure>
+                <p>
+                    Il est possible de styliser avec bootstrap et un petit peu de javascript son propore lecteur vidéo
+                    intégré.
+                </p>
+
+                <div>
+                    <style>
+                        .video-container {
+                            position: relative;
+                            padding-bottom: 56.25%;
+                            /* 16:9 aspect ratio */
+                            height: 0;
+                            overflow: hidden;
+                        }
+
+                        .video-container video {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        .custom-controls {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            background-color: rgba(0, 0, 0, 0.5);
+                            padding: 10px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+
+                        .playlist-item {
+                            cursor: pointer;
+                        }
+
+                        .playlist-item:hover {
+                            background-color: #f8f9fa;
+                        }
+                    </style>
+                    <figure>
+                        <div class="video-container mb-4">
+                            <video id="videoPlayer">
+                                <source src="./media/video/Fallout-4-Launch-Trailer.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="custom-controls">
+                                <button class="btn btn-light btn-sm" id="playPauseBtn"><i
+                                        class="bi bi-play-fill"></i></button>
+                                <input type="range" class="form-range" id="progressBar" min="0" max="100" step="1"
+                                    value="0">
+                                <button class="btn btn-light btn-sm" id="muteBtn"><i
+                                        class="bi bi-volume-up-fill"></i></button>
+                                <button class="btn btn-light btn-sm" id="fullscreenBtn"><i
+                                        class="bi bi-fullscreen"></i></button>
+                            </div>
+                        </div>
+                        <figcaption>
+                            <h2 class="mb-3">Video Title</h2>
+                            <p class="mb-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel consectetur interdum, nisl nunc egestas nunc, vitae tincidunt nisl nunc euismod nunc.
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <script>
+                        const video = document.getElementById('videoPlayer');
+                        const playPauseBtn = document.getElementById('playPauseBtn');
+                        const progressBar = document.getElementById('progressBar');
+                        const muteBtn = document.getElementById('muteBtn');
+                        const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+                        playPauseBtn.addEventListener('click', () => {
+                            if (video.paused) {
+                                video.play();
+                                playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+                            } else {
+                                video.pause();
+                                playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+                            }
+                        });
+
+                        video.addEventListener('timeupdate', () => {
+                            const progress = (video.currentTime / video.duration) * 100;
+                            progressBar.value = progress;
+                        });
+
+                        progressBar.addEventListener('input', () => {
+                            const time = (progressBar.value / 100) * video.duration;
+                            video.currentTime = time;
+                        });
+
+                        muteBtn.addEventListener('click', () => {
+                            video.muted = !video.muted;
+                            muteBtn.innerHTML = video.muted ? '<i class="bi bi-volume-mute-fill"></i>' : '<i class="bi bi-volume-up-fill"></i>';
+                        });
+
+                        fullscreenBtn.addEventListener('click', () => {
+                            if (video.requestFullscreen) {
+                                video.requestFullscreen();
+                            } else if (video.mozRequestFullScreen) {
+                                video.mozRequestFullScreen();
+                            } else if (video.webkitRequestFullscreen) {
+                                video.webkitRequestFullscreen();
+                            } else if (video.msRequestFullscreen) {
+                                video.msRequestFullscreen();
+                            }
+                        });
+                    </script>
+                </div>
             </div>
         </section>
     </main>
