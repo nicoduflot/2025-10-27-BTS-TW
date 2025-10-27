@@ -50,6 +50,121 @@
             </div>
         </div>
     </nav>
+    <main class="container">
+        <section class="row">
+            <div class="col-lg-6">
+                <h2>Reboot CSS</h2>
+                <p>
+                    La première partie du CSS cde bootstrap est un "reboot", c'est un dire toute une partie CSS qui
+                    permet de remettre en mode web et accessible les éléments normalement couvert par le CSS du
+                    navigateur, qui n'est pas accessible par défaut.
+                </p>
+                <p>
+                    La police de caratère est modifiée, passant d'une police à empatement non adaptée à l'affichage
+                    à l'écran par une police sans empatement. La taille de la police par défaut est augmentée ainsi
+                    que l'interligne.
+                </p>
+                <p>
+                    Tous les éléments sont par défaut mis en calcul de taille avec les bordures, alors que le CSS
+                    navigateur gère les tailles des éléments par leur contenu. De plus, la marge extérieure de body
+                    est supprimée.
+                </p>
+                <p>
+                    Premièrement, il gère les titres, puis les paragraphes sont modifiés.
+                </p>
+                <p>
+                    les <a href="#">liens</a> sont modifiés également.
+                </p>
+                <p>
+                    le séparateur horizontal <code>&lt;hr/&gt;</code> est modifié :
+                </p>
+                <hr />
+                <p>
+                    Il est possible de lui indiquer une couleur différente en allant puiser dans les classes de
+                    couleur de bordure fournies par Bootstrap
+                </p>
+                <hr class="border-primary" />
+                <hr class="border-secondary" />
+                <hr class="border-success" />
+                <hr class="border-warning" />
+                <hr class="border-danger" />
+                <div class="border border-primary">
+                    <p>
+                        Une div avec une classe border et une classe border-primary
+                    </p>
+                </div>
+                <p>
+                    Les listes non-ordonnées et ordonnées ont aussi été modifiées
+                </p>
+                <ul>
+                    <li>La marge extérieure en haut est supprimée</li>
+                    <li>
+                        Les sous-listes n'ont pas de marge intérieure basse
+                        <ul>
+                            <li>élément de sous-liste</li>
+                            <li>élément de sous-liste</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ol>
+                    <li>Mêmes changements pour les listes ordonnées</li>
+                    <li>
+                        Les sous-listes changent de même
+                        <ol type="A">
+                            <li>élément de sous-liste</li>
+                            <li>élément de sous-liste</li>
+                        </ol>
+                    </li>
+                </ol>
+                <p>
+                    Les listes de description ont été aussi modifiées.
+                </p>
+                <dl>
+                    <dt>
+                        Les listes de description :
+                    </dt>
+                    <dd>
+                        Elles permettent de directement définir les éléments d'une liste
+                    </dd>
+                    <dt>
+                        Elles s'utilisent :
+                    </dt>
+                    <dd>
+                        Comme des listes normales, à l'extérieur des paragraphes.
+                    </dd>
+                </dl>
+                <p>
+                    Les blocs de code doivent toujours échapper les chevrons, et il faut utiliser la balise
+                    <code>&lt;pre&gt;</code> pour passer à la ligne
+                </p>
+                <code><pre>&lt;p&gt;<br />  Un petit paragraphe<br />&lt;/p&gt;</pre></code>
+                <p>
+                    Les blocs de citation, pour suivre les spécifications HTML, devraient être écrits ainsi :<br />
+                    L'attribution du bloc de citation doit être fait en dehors de ce block, en utilisant la balise
+                    <code>&lt;figure&gt;</code> pour encapsuler le tout, on crée une entité de référencement propre
+                    ainsi qu'un affichage ayant du sens visuellement.<br />
+                    la balise <code>&lt;figcaption&gt;</code> à l'intérieur de laquelle on indique la source de la
+                    citation à l'aide de la balise <code>&lt;cite&gt;</code> permet d'associer la source à la
+                    citation en référencement.
+                </p>
+                <figure>
+                    <blockquote class="blockquote">
+                        <p>
+                            Marcher d’un même pas c'est l'objectif du despotisme et de la tyranie. Les hommes libres,eux, vont dans tout les sens.
+                        </p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        Seigneur Vétérini dans le roman <cite title='"La vérité" par Terry Pratchett'>"La vérité" de Terry Pratchett</cite>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-body-tertiary py-2">
+        <div class="container">
+            &copy; DAWAN - 2025/10/27
+        </div>
+    </footer>
 </body>
 
 </html>
