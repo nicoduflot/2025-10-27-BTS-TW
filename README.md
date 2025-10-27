@@ -2,7 +2,7 @@
 
 ## Bootstrap
 
-* Installer bootstrap
+* [Installer bootstrap](./bootstrap-01-installation.md)
 * Utiliser bootstrap : les classes utilitaires
 * Utiliser Bootstrap : les composants
 * Surcharger Bootstrap : fichier CSS
