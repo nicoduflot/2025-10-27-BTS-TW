@@ -397,57 +397,115 @@
                             </div>
                         </div>
                         <div class="col-sm-12 mb-2">
-                                <label class="form-label">Votre message</label>
-                                <textarea class="form-control" aria-label="Votre Message"></textarea>
-                            </div>
+                            <label class="form-label">Votre message</label>
+                            <textarea class="form-control" aria-label="Votre Message"></textarea>
                         </div>
-                        <div class="col-12 mb-2">
-                            <button class="btn btn-sm btn-outline-success" type="submit">Envoyer</button>
-                            <button class="btn btn-sm btn-outline-warning" type="reset">Effacer</button>
-                            <button class="btn btn-sm btn-outline-secondary" type="button">Bouton</button>
-                        </div>
-                    </form>
-                    <script>
-                        /*
-                        les fonctions javascript auto-éxécutée :
-                        la forme : 
-                        ()();
+            </div>
+            <div class="col-12 mb-2">
+                <button class="btn btn-sm btn-outline-success" type="submit">Envoyer</button>
+                <button class="btn btn-sm btn-outline-warning" type="reset">Effacer</button>
+                <button class="btn btn-sm btn-outline-secondary" type="button">Bouton</button>
+            </div>
+            </form>
+            <script>
+                /*
+                les fonctions javascript auto-éxécutée :
+                la forme : 
+                ()();
 
-                        ( la fonction anonyme a executer automatiquement )
-                        ( les attribus a envoyer à la fonction ci-dessus )
-                        */
+                ( la fonction anonyme a executer automatiquement )
+                ( les attribus a envoyer à la fonction ci-dessus )
+                */
 
-                        (() => {
-                            'use strict';
-                            const forms = document.querySelectorAll('.needs-validation');
-                            forms.forEach(form => {
-                                form.addEventListener('submit', (event) => {
-                                    if (!form.checkValidity()) {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                    }
+                (() => {
+                    'use strict';
+                    const forms = document.querySelectorAll('.needs-validation');
+                    forms.forEach(form => {
+                        form.addEventListener('submit', (event) => {
+                            if (!form.checkValidity()) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
 
-                                    form.classList.add('was-validated');
-                                }, false);
-                            })
-                        })
-                            ();
-                    </script>
-                </article>
+                            form.classList.add('was-validated');
+                        }, false);
+                    })
+                })
+                    ();
+            </script>
+            </article>
             </div>
         </section>
         <section class="row">
-            <div class="col-lg-4">
+            <header>
+                <h2>Les media</h2>
+            </header>
+            <div class="col-lg-3">
                 <article>
                     <header>
-                        <h2>Les media</h2>
+                        <h3>&lt;img&gt; et la classe img-fluid</h3>
                     </header>
                     <p>
                         Pour rendre les media adaptatif, bootstrap propose des classes adaptées.
                     </p>
                     <p>
-                        Pour les images, il existe la classe <code>imf-fluid</code>, elle affiche l'image dans son ratio, d'une taille inférieure à sa taille totale et ce jusqu'à sa taille totale. Équilant à <code>width: 100%</code> en CSS.
+                        Pour les images, il existe la classe <code>img-fluid</code>, elle affiche l'image dans son
+                        ratio, d'une taille inférieure à sa taille totale et ce jusqu'à sa taille totale. Équilant à
+                        <code>width: 100%</code> en CSS.
                     </p>
+                    <figure>
+                        <img class="img-fluid"
+                            src="./images/Adventures_with_Sherlock_Holmes_TD_Gallery_Jan_5-Mar_10,_2012.jpg" />
+                        <figcaption>
+                            Le message codé envoyé par Fred Porlock à Sherlock Holmes l'informant du Meurtre futur d'un
+                            certain Douglas à Birlstone.
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+            <div class="col-lg-3">
+                <article>
+                    <header>
+                        <h3>&lt;picture&gt; et img-fluid</h3>
+                    </header>
+                    <p>
+                        Il est aussi possible de combiner cette classe et la balise picture
+                    </p>
+                    <figure>
+                        <picture>
+                            <source srcset="./images/james-white-composite-800w.png" media="(min-width: 820px)" />
+                            <source srcset="./images/james-white-composite-400w.png" media="(min-width: 420px)" />
+                            <img class="img-fluid rounded" src="./images/james-white-composite-200w.png" />
+                        </picture>
+                    </figure>
+                </article>
+            </div>
+            <div class="col-lg-6">
+                <article>
+                    <header>
+                        <h3>La flottaison</h3>
+                    </header>
+                    <p class="clearfix">
+                        <img src="./images/batman-un-long-halloween-cover-art.jpg"
+                            class="img-thumbnail img-fluid float-start" style="max-width: 100px;" />
+                        <img src="./images/DC-Comics-Batman-Caped-Crusader-official-cardboard-cutout-buy-now-at-starstills__04189.1582849820.jpg"
+                            class="img-thumbnail img-fluid float-end" style="max-width: 100px;" />
+                        Il est possible d'utiliser une classe qui met les images en mode "vignette", avec une petite
+                        bordure blanche autour et aussi de faire "flotter" cette vignette à gauche avec "float-start" ou
+                        à droite avec "float-end"
+                    </p>
+                    <p>
+                        On peut aussi centrer l'image à l'aide de la classe "mx-auto" et "d-block"
+                    </p>
+                    <img src="./images/batman-b-timm-b-w.png" class="img-thumbnail mx-auto d-block img-fluid" style="max-width: 250px;" />
+                </article>
+            </div>
+            <div class="col-lg-6">
+                <article>
+                    <header>
+                        <h3>Les vidéos</h3>
+                    </header>
+                    
                 </article>
             </div>
         </section>
