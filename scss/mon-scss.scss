@@ -1,0 +1,138 @@
+@use "sass:map";
+//les commentaires en une ligne n'apparaîssent pas dans le fichier compilé
+
+/* les commentaires en bloc seront mis dans le fichier de sortie */ 
+
+// couleurs
+$black-color: #333;
+$white-color: #fff;
+$code-color: #d63384;
+$body-background: #f4f5f0;
+
+// corps des pages
+$body-font: Arial, Helvetica, Geneva, Tahoma, sans-serif;
+$body-color: $black-color;
+$font-size-general: 1.2rem;
+
+// goutières et marges
+$x-gutter : 0.5rem;
+$y-gutter : 0.5rem;
+
+// listes
+$liste-test: 100px, 200px;
+
+// map, tableau clef => valeur, mais il faut indiquer en début de script qu'on utilise map avec la commande @use "sass:map"
+
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+    xxxl: 1600px,
+);
+
+$bp-max-width: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px,
+    xxxl: 1560px,
+);
+
+// mixins
+
+@mixin links($color: darkblue, $hover: darkred){
+    a{
+        text-decoration: none;
+        color: $color;
+        &:hover, 
+        &:focus, 
+        &:focus-visible{
+            color: $hover;
+            outline-color: $hover;
+        }
+    }
+}
+
+// root
+:root{
+    font-family: $body-font;
+    color: $body-color;
+    font-size: $font-size-general;
+}
+
+// reboot
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+// déclarations générales
+
+img{
+    max-width: 100%;
+}
+
+// classes
+
+.container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+// css structure
+
+body{
+    background-color: $body-background;
+    margin: 0;
+    > nav, 
+    > footer{
+        ul li{
+            @include links();
+        }
+    }
+    main{
+        @include links($code-color, darkblue);
+        > section{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            > *{
+                width: 100%;
+            }
+        }
+    }
+}
+
+// utiliser des boucles en sass
+
+@each $breakpoint, $value in $breakpoints{
+    @media screen and (min-width: #{$value}){
+        /* #{$breakpoint} #{$value} #{map.get($bp-max-width, $breakpoint)} */
+        .container{
+            max-width: #{map.get($bp-max-width, $breakpoint)};
+        }
+        @if $breakpoint == 'lg' {
+            body main{
+                > section{
+                    > *{
+                        width: 50%;
+                    }
+                }
+            }
+        }
+        @if $breakpoint == 'xxl' {
+            body main{
+                > section{
+                    > *{
+                        width: 32%;
+                    }
+                }
+            }
+        }
+    }
+}

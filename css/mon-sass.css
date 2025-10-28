@@ -1,0 +1,98 @@
+/* les commentaires en bloc seront mis dans le fichier de sortie */
+:root {
+  font-family: Arial, Helvetica, Geneva, Tahoma, sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  background-color: #f4f5f0;
+  margin: 0;
+}
+body > nav ul li a,
+body > footer ul li a {
+  text-decoration: none;
+  color: darkblue;
+}
+body > nav ul li a:hover, body > nav ul li a:focus, body > nav ul li a:focus-visible,
+body > footer ul li a:hover,
+body > footer ul li a:focus,
+body > footer ul li a:focus-visible {
+  color: darkred;
+  outline-color: darkred;
+}
+body main a {
+  text-decoration: none;
+  color: #d63384;
+}
+body main a:hover, body main a:focus, body main a:focus-visible {
+  color: darkblue;
+  outline-color: darkblue;
+}
+body main > section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+body main > section > * {
+  width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+  /* sm 576px 540px */
+  .container {
+    max-width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* md 768px 720px */
+  .container {
+    max-width: 720px;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* lg 992px 960px */
+  .container {
+    max-width: 960px;
+  }
+  body main > section > * {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* xl 1200px 1140px */
+  .container {
+    max-width: 1140px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  /* xxl 1400px 1320px */
+  .container {
+    max-width: 1320px;
+  }
+  body main > section > * {
+    width: 32%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  /* xxxl 1600px 1560px */
+  .container {
+    max-width: 1560px;
+  }
+}
+
+/*# sourceMappingURL=mon-sass.css.map */
