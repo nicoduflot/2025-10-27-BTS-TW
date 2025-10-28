@@ -1,3 +1,14 @@
+/*
+Dans mon-scss.scss et dans  mon-scss-module.scss et ses modules
+
+    * Créer la classe 'site-title' qui va reproduire le h1
+    * Une classe alert qui défini un style commun à tous les éléments de type alert et les classes a ajouter : 
+        alert-primary (bleu)
+        alert-warning (orange) 
+        et alert-danger (rouge) 
+    qui définissent un thème de couleur pour chaque alert
+    * Une variation de la taille du h1 (et donc du site-title) selon le viewport
+*/
 @use "sass:map";
 //les commentaires en une ligne n'apparaîssent pas dans le fichier compilé
 

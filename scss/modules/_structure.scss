@@ -1,0 +1,23 @@
+// css structure
+
+body{
+    background-color: $body-background;
+    margin: 0;
+    > nav, 
+    > footer{
+        ul li{
+            @include links();
+        }
+    }
+    main{
+        @include links($code-color, darkblue);
+        > section{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            > *{
+                width: 100%;
+            }
+        }
+    }
+}
