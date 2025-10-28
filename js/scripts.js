@@ -1,46 +1,58 @@
 window.addEventListener('DOMContentLoaded', function () {
     console.log('chargement des contrôles du videoplayer');
 
-    const video = document.getElementById('videoPlayer');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const progressBar = document.getElementById('progressBar');
-    const muteBtn = document.getElementById('muteBtn');
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const videos = document.querySelectorAll('.videoplayer');
 
-    playPauseBtn.addEventListener('click', () => {
-        if (video.paused) {
-            video.play();
-            playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
-        } else {
-            video.pause();
-            playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
-        }
+    const tab = [1, 2, 3, 4, 5];
+    tab.map((donnee, id, tableau) => {
+        console.log(donnee, id, tableau);
     });
 
-    video.addEventListener('timeupdate', () => {
-        const progress = (video.currentTime / video.duration) * 100;
-        progressBar.value = progress;
+    videos.forEach((video) => {
+        const videoFile = video.querySelector('video');
+        const playPauseBtn = video.querySelector('.playPauseBtn');
+        const progressBar = video.querySelector('.progressRange');
+        const muteBtn = video.querySelector('.muteBtn');
+        const fullscreenBtn = video.querySelector('.fullscreenBtn');
+        playPauseBtn.addEventListener('click', () => {
+            if (videoFile.paused) {
+                videoFile.play();
+                playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+            } else {
+                videoFile.pause();
+                playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+            }
+        });
+        videoFile.addEventListener('timeupdate', () => {
+            const progress = (videoFile.currentTime / videoFile.duration) * 100;
+            progressBar.value = progress;
+        });
+
+        progressBar.addEventListener('input', () => {
+            const time = (progressBar.value / 100) * videoFile.duration;
+            videoFile.currentTime = time;
+        });
+
+        muteBtn.addEventListener('click', () => {
+            videoFile.muted = !videoFile.muted;
+            muteBtn.innerHTML = videoFile.muted ? '<i class="bi bi-volume-mute-fill"></i>' : '<i class="bi bi-volume-up-fill"></i>';
+        });
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (videoFile.requestFullscreen) {
+                videoFile.requestFullscreen();
+            } else if (videoFile.mozRequestFullScreen) {
+                videoFile.mozRequestFullScreen();
+            } else if (videoFile.webkitRequestFullscreen) {
+                videoFile.webkitRequestFullscreen();
+            } else if (videoFile.msRequestFullscreen) {
+                videoFile.msRequestFullscreen();
+            }
+        });
     });
 
-    progressBar.addEventListener('input', () => {
-        const time = (progressBar.value / 100) * video.duration;
-        video.currentTime = time;
-    });
 
-    muteBtn.addEventListener('click', () => {
-        video.muted = !video.muted;
-        muteBtn.innerHTML = video.muted ? '<i class="bi bi-volume-mute-fill"></i>' : '<i class="bi bi-volume-up-fill"></i>';
-    });
 
-    fullscreenBtn.addEventListener('click', () => {
-        if (video.requestFullscreen) {
-            video.requestFullscreen();
-        } else if (video.mozRequestFullScreen) {
-            video.mozRequestFullScreen();
-        } else if (video.webkitRequestFullscreen) {
-            video.webkitRequestFullscreen();
-        } else if (video.msRequestFullscreen) {
-            video.msRequestFullscreen();
-        }
-    });
+
+
 });
