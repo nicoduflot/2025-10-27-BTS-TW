@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap & Tailwind - Introduction à Bootstrap</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/bootstrap-icons.css" />
+    <script src="./js/bootstrap.bundle.js"></script>
+</head>
+
+<body data-bs-theme="dark">
+    <header class="bg-body-tertiary">
+        <div class="container py-2">
+            <h1>Formation Bootstrap </h1>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-md bg-body-tertiary" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="./">BTS-TW</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <!--<span>ICI</span>-->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">BTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./intro-sass.html">Sass</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            BTS-Sass
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="bts-sass.html">Installation</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./tailwind.html">Tailwind</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <section class="row">
+            <article>
+                <h2>Créer son CSS à l'aide de Sass</h2>
+                <h3>Des variables</h3>
+                <p>
+                    Sass utilise des variables, il faut les écrire : <br /><code>$code-color: #d63384;</code>
+                </p>
+                <p>
+                    Et quand on écrit dans le fichier Sass : <br />
+                </p>
+                <code><pre>
+code{
+    color: $code-color;
+}
+                </pre></code>
+                <p>
+                    et le css suivant est généré :
+                </p>
+                <code><pre>
+code {
+    color: #d63384;
+}
+                </pre></code>
+            </article>
+            <article>
+                <h2>Des Listes</h2>
+                <p>
+                    Il est possible d'ajouter plusieurs éléments dans une variable, il s'agit d'une liste (on peut
+                    comparer ça un tableau mais il n'y a pas d'indice des éléments de la liste)
+                </p>
+                <code><pre>
+$breakpointsList: 540px, 720px, 690px;
+                </pre></code>
+                <p>
+                    On peut donc faire une boucle sur les éléments de la liste
+                </p>
+                <code><pre>
+@each $breakpoint in $breakpointsList{
+    .maxwidth#{$breakpoint}{
+        max-width: #{$breakpoint};
+    }
+}
+                </pre></code>
+                <p>
+                    Et cela génère le css suivant :
+                </p>
+                <code><pre>
+.maxwidth540px {
+    max-width: 540px;
+}
+    
+.maxwidth720px {
+    max-width: 720px;
+}
+    
+.maxwidth690px {
+    max-width: 690px;
+}
+                </pre></code>
+            </article>
+            <article>
+                <h2>Des "tableaux"</h2>
+                <p>
+                    En Sass on peut utiliser ce qu'on appelle des "map", il s'agit de tableaux dont l'indice est une
+                    clefs au lieu d'un indice.
+                </p>
+                <p>
+                    ces Tableaux permettent de générer des éléments récurrents mais différents selon les valeurs et les
+                    clefs du tableau.
+                </p>
+                <p>
+                    Par exemple, on crée deux map pour gérer un affichage responsive d'un conteneur
+                </p>
+                <code><pre>
+// map, il faut ajoute sass:use map en début de script
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+$rwd-max-width: (
+  sm: 540,
+  md: 720,
+  lg: 960,
+  xl: 1140,
+  xxl: 1320
+);
+                </pre></code>
+                <p>
+                    On peut ensuite utiliser des maps pour faire des boucles plus complètes :
+                </p>
+                <code><pre>
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $gutter-x;
+    padding-right: $gutter-x;
+}
+
+@each $breakpoint, $value in $breakpoints {
+    @media screen and (min-width: #{$value}) {
+        .container{
+            max-width: #{map.get($rwd-max-width, $breakpoint)}px;
+        }
+
+        .row > *{
+            max-width: #{map.get($rwd-bp-column-width, $breakpoint)};
+        }
+    }
+}
+</pre></code>
+                <p>
+                    On obtient ainsi le css suivant :
+                </p>
+                <code><pre>
+@media screen and (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+</pre></code>
+            </article>
+            <article>
+                <h2>Les "mixins"</h2>
+                <p>
+                    Les mixins permettent de facilement écrire les dérivations d'une classe basique. On décrit un
+                    comportement, que l'on ajoute à une classe par exemple, mais ce comportement contient une variables
+                    par défaut.
+                </p>
+                <p>
+                    On peut ensuite écrire une autre classe qui appelle ce comportement mais on remplace la valeur de la
+                    variables par défaut.
+                </p>
+                <code><pre>
+@mixin alert($alert: lightblue){
+    background: $alert;
+    box-shadow: 0 0 1px rgba($alert, 0.25);
+    color: black;
+    margin: $gutter-y;
+    padding: $gutter-x;
+    border-radius: calc($gutter-x/2);
+}
+</pre></code>
+                <p>
+                    On écrit ensuite la classe principale qui appelle généralement la mixin seulement ainsi que les
+                    dérivation ou on remplace la variable de couleur de fond.
+                </p>
+                <code><pre>
+.info{
+    @include alert;
+}
+
+.danger{
+    @include alert($alert: orange);
+}
+
+.success{
+    @include alert($alert: lightgreen);
+}
+</pre></code>
+                <p>
+                    Une fois compilé, on obtien le css suivant
+                </p>
+                <code><pre>
+.info {
+    background: lightblue;
+    box-shadow: 0 0 1px rgba(173, 216, 230, 0.25);
+    color: black;
+    margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+    
+.danger {
+    background: orange;
+    box-shadow: 0 0 1px rgba(255, 165, 0, 0.25);
+    color: black;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+    
+.success {
+    background: lightgreen;
+    box-shadow: 0 0 1px rgba(144, 238, 144, 0.25);
+    color: black;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+</pre></code>
+                <div class="info">
+                    .info
+                </div>
+                <div class="danger">
+                    .danger
+                </div>
+                <div class="success">
+                    .success
+                </div>
+            </article>
+            <article>
+                <h2>Le "nesting"</h2>
+                <p>
+                    Le nesting c'est le principe d'encapsulation du CSS. Il et compiler pour écrire simplement du css basé par exemple sur la structure du HTML
+                </p>
+                <p>
+                    Par exemple :
+                </p>
+<code><pre>
+@mixin links($color: darkblue, $hover: darkred){
+    a{
+        color: $color;
+        &:hover{
+            color: $hover;
+        }
+    }
+}
+body {
+    margin: 0;
+    background-color: $body-background;
+    font-family: $body-font;
+    color: $body-color;
+    font-size: $body-size;
+    a {
+        text-decoration: none;
+    }
+    > {
+        nav{
+            ul{
+                list-style-type: none;
+                margin: 0;
+                > li{
+                    @include links;
+                }
+            }
+        }
+        footer{
+            nav{
+                ul{
+                    li{
+                        @include links($color: darkred, $hover: darkblue);
+                    }
+                }
+            }
+            @include links($color: darkred, $hover: darkblue);
+        }
+    }
+}
+</pre></code>
+                <p>
+                    Compile le css suivant :
+                </p>
+<code><pre>
+body {
+    margin: 0;
+    background-color: #f4f5f0;
+    font-family: Arial, Verdana, Geneva, Tahoma, sans-serif;
+    color: #333;
+    font-size: 16px;
+}
+body a {
+    text-decoration: none;
+}
+body > nav ul {
+    list-style-type: none;
+    margin: 0;
+}
+body > nav ul > li a {
+    color: darkblue;
+}
+body > nav ul > li a:hover {
+    color: darkred;
+}
+body > footer nav ul li a {
+    color: darkred;
+}
+body > footer nav ul li a:hover {
+    color: darkblue;
+}
+body > footer a {
+    color: darkred;
+}
+body > footer a:hover {
+    color: darkblue;
+}
+</pre></code>
+            </article>
+        </section>
+    </main>
+    <footer class="bg-body-tertiary py-2">
+        <div class="container">
+            &copy; DAWAN - 2025/10/27
+        </div>
+    </footer>
+    <script>
+        console.log('contenu chargé');
+        
+    </script>
+</body>
+
+</html>
