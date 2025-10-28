@@ -52,7 +52,41 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    const audios = document.querySelectorAll('.audio');
 
+    audios.forEach(audio=>{
+        const audioFile = audio.querySelector('audio');
+        const playPauseBtn = audio.querySelector('.playPauseBtn');
+        const progressBar = audio.querySelector('.progress-bar');
+        const currentTime = audio.querySelector('.currentTime');
+        const durationTime = audio.querySelector('.duration');
 
+        let isPlaying = false;
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audioFile.paused) {
+                audioFile.play();
+                playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+            } else {
+                audioFile.pause();
+                playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        audioFile.addEventListener('timeupdate', ()=>{
+            const progress = ( audioFile.currentTime / audioFile.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+            progressBar.setAttribute('aria-valuenow', progress);
+            currentTime.textContent = formatTime(audioFile.currentTime);
+            durationTime.textContent = formatTime(audioFile.duration);
+        });
+
+        function formatTime(seconds){
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}: ${remainingSeconds.toString().padStart(2, '00')}`;
+        }
+    });
 
 });
