@@ -1,0 +1,48 @@
+// custom-02.scss
+
+// Deuxième méthode : Inclure quelques parties de bootstrap
+
+// 1. Ajouter tout d'abord les fonctions (pour pouvoir manipuler les couleurs, les SVG...)
+
+@import '../scss/bts/functions';
+
+// 2 ici on inclue les surcharge de variables
+
+// 3 inclure le reste des variables requises pour les feuilles de style, mode de couleurs, etc
+
+@import'../scss/bts/variables';
+@import'../scss/bts/variables-dark';
+
+// 4 les surcharges de maps
+
+// ajouter un breakpoint à bootstrap
+$custom-grid-breakpoint: (
+    xxxl: 1600px
+);
+
+$custom-breakpoint: (
+    xxxl: 1560px
+);
+
+$grid-breakpoints: map-merge($grid-breakpoints , $custom-grid-breakpoint);
+$container-max-widths: map-merge($container-max-widths , $custom-breakpoint );
+
+// 5 le reste des parties requises
+@import "../scss/bts/maps";
+@import "../scss/bts/mixins";
+@import "../scss/bts/root";
+
+// 6 ici les partials optionnels selon le besoin
+@import "../scss/bts/utilities";
+@import "../scss/bts/reboot";
+@import "../scss/bts/containers";
+@import "../scss/bts/grid";
+
+// 7 en option les utilitaires d'API pour générer les classes basées sur le map Sass sans utilities.scss
+@import "../scss/bts/utilities/api";
+
+// 8. scss et css additionnel
+
+// bootstrap-icons
+@import url('bootstrap-icons.css');
+@import url('LazenbyCompSmooth.css');
