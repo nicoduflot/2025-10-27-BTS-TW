@@ -1,15 +1,16 @@
 /*
 Dans mon-scss.scss et dans  mon-scss-module.scss et ses modules
 
-    * Créer la classe 'site-title' qui va reproduire le h1
+    * Créer la classe 'site-title' qui va reproduire le h1 OK
     * Une classe alert qui défini un style commun à tous les éléments de type alert et les classes a ajouter : 
         alert-primary (bleu)
         alert-warning (orange) 
         et alert-danger (rouge) 
-    qui définissent un thème de couleur pour chaque alert
-    * Une variation de la taille du h1 (et donc du site-title) selon le viewport
+    qui définissent un thème de couleur pour chaque alert OK
+    * Une variation de la taille du h1 (et donc du site-title) selon le viewport ok
 */
 @use "sass:map";
+@use "sass:math";
 //les commentaires en une ligne n'apparaîssent pas dans le fichier compilé
 
 /* les commentaires en bloc seront mis dans le fichier de sortie */ 
@@ -19,11 +20,18 @@ $black-color: #333;
 $white-color: #fff;
 $code-color: #d63384;
 $body-background: #f4f5f0;
+$bg-primary: rgb(106, 155, 210);
+$border-primary: rgb(68, 133, 208);
+$bg-warning: rgb(210, 177, 106);
+$border-warning: rgb(208, 143, 68);
+$bg-danger: rgb(210, 125, 106);
+$border-danger: rgb(208, 68, 68);
 
 // corps des pages
 $body-font: Arial, Helvetica, Geneva, Tahoma, sans-serif;
 $body-color: $black-color;
 $font-size-general: 1.2rem;
+
 
 // goutières et marges
 $x-gutter : 0.5rem;
@@ -31,6 +39,15 @@ $y-gutter : 0.5rem;
 
 // listes
 $liste-test: 100px, 200px;
+
+
+// headings sizes
+$h1-size: $font-size-general * 1.8;
+$h2-size: $font-size-general * 1.5;
+$h3-size: $font-size-general * 1.25;
+$h4-size: $font-size-general * 1.2;
+$h5-size: $font-size-general * 1.1;
+$h6-size: $font-size-general;
 
 // map, tableau clef => valeur, mais il faut indiquer en début de script qu'on utilise map avec la commande @use "sass:map"
 
@@ -52,6 +69,15 @@ $bp-max-width: (
     xxxl: 1560px,
 );
 
+$font-sizes: (
+   h1: $h1-size,
+   h2: $h2-size,
+   h3: $h3-size,
+   h4: $h4-size,
+   h5: $h5-size,
+   h6: $h6-size,
+);
+
 // mixins
 
 @mixin links($color: darkblue, $hover: darkred){
@@ -67,6 +93,11 @@ $bp-max-width: (
     }
 }
 
+@mixin alerts($border-color: $border-primary, $bg-color: $bg-primary){
+    background-color: $bg-color;
+    border-color: $border-color;
+}
+
 // root
 :root{
     font-family: $body-font;
@@ -77,6 +108,19 @@ $bp-max-width: (
 // reboot
 *, *::before, *::after{
     box-sizing: border-box;
+}
+
+%heading{
+    margin-top: 0;
+    margin-bottom: calc($font-size-general / 2);
+    font-weight: bold;
+}
+
+@each $headingSize, $h-font-size in $font-sizes{
+    .#{$headingSize}, #{$headingSize}{
+        @extend %heading;
+        font-size: #{$h-font-size};
+    }
 }
 
 // déclarations générales
@@ -93,7 +137,27 @@ img{
     margin-right: auto;
 }
 
+.site-title{
+    font-size: $h1-size;
+    font-weight: bold;
+}
 
+.alert{
+    font-size: calc($font-size-general*0.9);
+    border: 2px solid transparent;
+}
+
+.alert-primary{
+    @include alerts();
+}
+
+.alert-warning{
+    @include alerts($border-warning, $bg-warning);
+}
+
+.alert-danger{
+    @include alerts($border-danger, $bg-danger);
+}
 
 // css structure
 
@@ -127,19 +191,27 @@ body{
         .container{
             max-width: #{map.get($bp-max-width, $breakpoint)};
         }
+        @if $breakpoint == 'md'{
+            h1, .h1, .site-title{
+                font-size: $font-size-general * 2.2;
+            }
+        }
         @if $breakpoint == 'lg' {
             body main{
                 > section{
-                    > *{
+                    > *:not(header){
                         width: 50%;
                     }
                 }
             }
         }
         @if $breakpoint == 'xxl' {
+            h1, .h1, .site-title{
+                font-size: $font-size-general * 2.5;
+            }
             body main{
                 > section{
-                    > *{
+                    > *:not(header){
                         width: 32%;
                     }
                 }

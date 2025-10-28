@@ -3,3 +3,25 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.site-title{
+    font-size: $h1-size;
+    font-weight: bold;
+}
+
+.alert{
+    font-size: calc($font-size-general*0.9);
+    border: 2px solid transparent;
+}
+
+.alert-primary{
+    @include alerts();
+}
+
+.alert-warning{
+    @include alerts($border-warning, $bg-warning);
+}
+
+.alert-warning{
+    @include alerts($border-danger, $bg-danger);
+}

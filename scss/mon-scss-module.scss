@@ -10,6 +10,7 @@ Dans mon-scss.scss et dans  mon-scss-module.scss et ses modules
     * Une variation de la taille du h1 (et donc du site-title) selon le viewport
 */
 @use "sass:map";
+@use "sass:math";
 @import "./modules/variables";
 @import "./modules/maps";
 @import "./modules/mixins";
@@ -26,19 +27,27 @@ Dans mon-scss.scss et dans  mon-scss-module.scss et ses modules
         .container{
             max-width: #{map.get($bp-max-width, $breakpoint)};
         }
+        @if $breakpoint == 'md'{
+            h1, .h1, .site-title{
+                font-size: calc($font-size-general * 2.2);
+            }
+        }
         @if $breakpoint == 'lg' {
             body main{
                 > section{
-                    > *{
+                    > *:not(header){
                         width: 50%;
                     }
                 }
             }
         }
         @if $breakpoint == 'xxl' {
+            h1, .h1, .site-title{
+                font-size: calc($font-size-general * 2.5);
+            }
             body main{
                 > section{
-                    > *{
+                    > *:not(header){
                         width: 32%;
                     }
                 }

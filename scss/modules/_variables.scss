@@ -3,6 +3,13 @@ $black-color: #333;
 $white-color: #fff;
 $code-color: #d63384;
 $body-background: #f4f5f0;
+$bg-primary: rgb(106, 155, 210);
+$border-primary: rgb(68, 133, 208);
+$bg-warning: rgb(210, 177, 106);
+$border-warning: rgb(208, 143, 68);
+$bg-danger: rgb(210, 125, 106);
+$border-danger: rgb(208, 68, 68);
+
 
 // corps des pages
 $body-font: Arial, Helvetica, Geneva, Tahoma, sans-serif;
@@ -15,3 +22,11 @@ $y-gutter : 0.5rem;
 
 // listes
 $liste-test: 100px, 200px;
+
+// headings sizes
+$h1-size: calc($font-size-general * 1.8);
+$h2-size: $font-size-general * 1.5;
+$h3-size: $font-size-general * 1.25;
+$h4-size: $font-size-general * 1.2;
+$h5-size: $font-size-general * 1.1;
+$h6-size: $font-size-general;

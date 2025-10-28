@@ -10,3 +10,9 @@
         }
     }
 }
+
+@mixin alerts($border-color: $border-primary, $bg-color: $bg-primary){
+    background-color: $bg-color;
+    border-color: $border-color;
+}
+
