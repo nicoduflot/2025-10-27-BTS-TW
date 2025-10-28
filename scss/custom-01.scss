@@ -1,0 +1,48 @@
+// custom-01.scss
+
+// Tout prendre de bootstrap et ajouter sont scss à la fin
+
+// 1 C'est ici qu'il faut inclure toutes les surcharges de variables (mais les fonctions ne seront pas disponible)
+
+// 2 C'est ici qu'on importe le scss de bootstrap
+
+@import "../scss/bts/bootstrap.scss";
+
+// 3 Ajouter le scss pour customisation
+
+// bootstrap-icons
+@import url('bootstrap-icons.css');
+@import url('LazenbyCompSmooth.css');
+
+// videoplayer
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.custom-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1, .h1{
+    font-family: 'LazenbyCompSmooth';
+}

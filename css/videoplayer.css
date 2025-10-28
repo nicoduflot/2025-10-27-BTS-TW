@@ -25,11 +25,3 @@
   justify-content: space-between;
   align-items: center;
 }
-
-.playlist-item {
-  cursor: pointer;
-}
-
-.playlist-item:hover {
-  background-color: #f8f9fa;
-}

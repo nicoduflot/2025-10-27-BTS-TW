@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surcharger bts méthode 01</title>
+    <link rel="stylesheet" href="./css/custom-01.css" />
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/scripts.js"></script>
+</head>
+
+<body data-bs-theme="dark">
+    <header class="bg-body-tertiary">
+        <div class="container py-2">
+            <h1>Formation Bootstrap </h1>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-md bg-body-tertiary" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="./">BTS-TW</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <!--<span>ICI</span>-->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">BTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./intro-sass.html">Sass</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            BTS-Sass
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="bts-sass.html">Installation</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./tailwind.html">Tailwind</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <section class="row">
+            <div class="col-lg-6">
+                <header>
+                    <h2>Reboot CSS</h2>
+                </header>
+                <p>
+                    La première partie du CSS cde bootstrap est un "reboot", c'est un dire toute une partie CSS qui
+                    permet de remettre en mode web et accessible les éléments normalement couvert par le CSS du
+                    navigateur, qui n'est pas accessible par défaut.
+                </p>
+                <p>
+                    La police de caratère est modifiée, passant d'une police à empatement non adaptée à l'affichage
+                    à l'écran par une police sans empatement. La taille de la police par défaut est augmentée ainsi
+                    que l'interligne.
+                </p>
+                <p>
+                    Tous les éléments sont par défaut mis en calcul de taille avec les bordures, alors que le CSS
+                    navigateur gère les tailles des éléments par leur contenu. De plus, la marge extérieure de body
+                    est supprimée.
+                </p>
+                <p>
+                    Premièrement, il gère les titres, puis les paragraphes sont modifiés.
+                </p>
+                <p>
+                    les <a href="#">liens</a> sont modifiés également.
+                </p>
+                <p>
+                    le séparateur horizontal <code>&lt;hr/&gt;</code> est modifié :
+                </p>
+                <hr />
+                <p>
+                    Il est possible de lui indiquer une couleur différente en allant puiser dans les classes de
+                    couleur de bordure fournies par Bootstrap
+                </p>
+                <hr class="border-primary" />
+                <hr class="border-secondary" />
+                <hr class="border-success" />
+                <hr class="border-warning" />
+                <hr class="border-danger" />
+                <div class="border border-primary">
+                    <p>
+                        Une div avec une classe border et une classe border-primary
+                    </p>
+                </div>
+                <p>
+                    Les listes non-ordonnées et ordonnées ont aussi été modifiées
+                </p>
+                <ul>
+                    <li>La marge extérieure en haut est supprimée</li>
+                    <li>
+                        Les sous-listes n'ont pas de marge intérieure basse
+                        <ul>
+                            <li>élément de sous-liste</li>
+                            <li>élément de sous-liste</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ol>
+                    <li>Mêmes changements pour les listes ordonnées</li>
+                    <li>
+                        Les sous-listes changent de même
+                        <ol type="A">
+                            <li>élément de sous-liste</li>
+                            <li>élément de sous-liste</li>
+                        </ol>
+                    </li>
+                </ol>
+                <p>
+                    Les listes de description ont été aussi modifiées.
+                </p>
+                <dl>
+                    <dt>
+                        Les listes de description :
+                    </dt>
+                    <dd>
+                        Elles permettent de directement définir les éléments d'une liste
+                    </dd>
+                    <dt>
+                        Elles s'utilisent :
+                    </dt>
+                    <dd>
+                        Comme des listes normales, à l'extérieur des paragraphes.
+                    </dd>
+                </dl>
+                <p>
+                    Les blocs de code doivent toujours échapper les chevrons, et il faut utiliser la balise
+                    <code>&lt;pre&gt;</code> pour passer à la ligne
+                </p>
+                <code><pre>&lt;p&gt;<br />  Un petit paragraphe<br />&lt;/p&gt;</pre></code>
+                <p>
+                    Les blocs de citation, pour suivre les spécifications HTML, devraient être écrits ainsi :<br />
+                    L'attribution du bloc de citation doit être fait en dehors de ce block, en utilisant la balise
+                    <code>&lt;figure&gt;</code> pour encapsuler le tout, on crée une entité de référencement propre
+                    ainsi qu'un affichage ayant du sens visuellement.<br />
+                    la balise <code>&lt;figcaption&gt;</code> à l'intérieur de laquelle on indique la source de la
+                    citation à l'aide de la balise <code>&lt;cite&gt;</code> permet d'associer la source à la
+                    citation en référencement.
+                </p>
+                <figure>
+                    <blockquote class="blockquote">
+                        <p>
+                            Marcher d’un même pas c'est l'objectif du despotisme et de la tyranie. Les hommes
+                            libres,eux, vont dans tout les sens.
+                        </p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        Seigneur Vétérini dans le roman <cite title='"La vérité" par Terry Pratchett'>"La vérité" de
+                            Terry Pratchett</cite>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-lg-6">
+                <article>
+                    <header>
+                        <h2>Les tableaux</h2>
+                    </header>
+                    <p>
+                        Le reboot css de Bootstrap règle les problèmes d'affichage des tableaux dûs au CSS du
+                        navigateur. En ajoutant la classe "table", la présentation de base est améliorée.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <caption>Un tableau bootstrap avec la classe "table"</caption>
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Login</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <td>Nicolas</td>
+                                    <td>Duflot</td>
+                                    <td>nduflot</td>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <td>Mickey</td>
+                                    <td>Mulot</td>
+                                    <td>mmulot</td>
+                                </tr>
+                                <tr>
+                                    <th>3</th>
+                                    <td>Darren</td>
+                                    <td>Arronovsky</td>
+                                    <td>darronovsky</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Login</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <p>
+                        Il est possible de changer les couleurs, l'apparence, et d'ajouter des bordures aux tableaux en
+                        utilisant les classes Bootstrap
+                    </p>
+                    <p>
+                        Tout comme les couleurs, les mots clefs "primary", "secondary", "dark", "success", "danger",
+                        etc. permettront d'influer sur les couleurs de fond des tableaux.
+                    </p>
+                    <p>
+                        Il est possible d'agir au niveau du tableau en entier, sur une ligne ou sur une cellule.
+                    </p>
+                </article>
+                <table class="table">
+                    <caption>Différentes classes sur les différentes parties du tableau</caption>
+                    <tr class="table-warning">
+                        <th>La ligne est en warning</th>
+                        <td>
+                            La ligne <code>&lt;tr&gt;</code> étant en warning, <code>&lt;th&gt;</code> et
+                            <code>&lt;td&gt;</code> sont en warning</code>
+                        </td>
+                        <td class="table-primary">
+                            Cette <code>&lt;td&gt;</code> à la classe "table-primary" qui surcharge l'héritage de la
+                            classe apposée à <code>&lt;tr&gt;</code>
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    Il est possible d'appliquer une couleur de fond qui alterne une ligne sur deux avec la classe
+                    "table-striped". Les couleurs choisie seront en relation avec la couleur apposée au tableau en
+                    entier.
+                </p>
+                <p>
+                    Attention avec les cellules "fusionnées" sur les lignes
+                </p>
+                <table class="table table-striped">
+                    <caption>Un tableau avec "table-striped"</caption>
+                    <tr>
+                        <th>Entête de colonne</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Ligne suivante changement de couleur de fond</th>
+                        <td>Une cellule</td>
+                        <td rowspan="2">Cellulle "fusionnée" sur deux lignes</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Ligne suivante</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                </table>
+                <p>
+                    Un autre exemple
+                </p>
+                <table class="table table-primary table-striped">
+                    <caption>Un tableau avec "table-striped"</caption>
+                    <tr>
+                        <th>Entête de colonne</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Ligne suivante changement de couleur de fond</th>
+                        <td>Une cellule</td>
+                        <td rowspan="2">Cellulle "fusionnée" sur deux lignes</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Ligne suivante</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                </table>
+                <p>
+                    Les rayures sont applicables sur les colonnes
+                </p>
+                <table class="table table-striped-columns">
+                    <caption>Un tableau avec "table-striped"</caption>
+                    <tr>
+                        <th>Entête de colonne</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Entête de colonne</th>
+                        <td>Une cellule</td>
+                        <td colspan="2">Une cellule "fusionnée" sur deux colonnes</td>
+                    </tr>
+                </table>
+                <p>
+                    Les bordures peuvent être ajoutées comme pour les éléments à l'aide de la classe border et ses
+                    dérivations
+                </p>
+                <table class="table table-bordered">
+                    <caption>Un tableau avec "table-striped"</caption>
+                    <tr class="border-primary">
+                        <th>Entête de colonne</th>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                    <tr>
+                        <th>Entête de colonne</th>
+                        <td class="border-danger">Une cellule</td>
+                        <td>Une cellule</td>
+                        <td>Une cellule</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <article>
+                    <header>
+                        <h2>Les formulaires</h2>
+                    </header>
+                    <p>
+                        Les formulaires comportent toute une liste de classes qui permettent de mettre facilement en
+                        forme
+                        les champs de saisie.<br />
+                        De plus, Bootstrap permet de customiser les contrôles de formulaires, et cela automatiquement
+                        grâce
+                        au JS, et à l'utilisation des classes adéquates.
+                    </p>
+                    <form class="row needs-validation" novalidate>
+                        <div class="col-sm-6">
+                            <label for="civilite" class="form-label w-100">
+                                Civilité
+                            </label>
+                            <select class="form-select mb-2" id="civilite" aria-describedby="info-civilite">
+                                <option value="N" selected>Non communiqué</option>
+                                <option value="H">Homme</option>
+                                <option value="F">Femme</option>
+                            </select>
+                            <div id="info-civilite" class="alert alert-primary">
+                                <small>Indiquez votre civilité si le désirez, ce champ n'est pas
+                                    obligatoire</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group my-2">
+                                <label class="input-group-text">@</label>
+                                <input class="form-control" type="email" name="email" id="email"
+                                    aria-label="Adresse email" aria-describedby="info-email" required />
+                                <div class="invalid-feedback">
+                                    Veuillez entrer votre email
+                                </div>
+                            </div>
+                            <div id="info-email" class="alert alert-primary">
+                                <small>Indiquez votre email, ce champ est obligatoire</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="nom">Nom de famille</label>
+                            <input class="form-control my-2" type="text" name="nom" id="nom" aria-describedby="info-nom"
+                                required />
+                            <div class="invalid-feedback">
+                                Veuillez entrer votre nom de famille
+                            </div>
+                            <div id="info-nom" class="alert alert-primary">
+                                <small>Indiquez votre nom de famille, ce champ est obligatoire</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="prenom">Prénom</label>
+                            <input class="form-control my-2" type="text" name="prenom" id="prenom"
+                                aria-describedby="info-prenom" />
+                            <div id="info-prenom" class="alert alert-primary">
+                                <small>Indiquez votre prénom de famille, ce champ n'est pas obligatoire</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="form-check">
+                                <input type="checkbox" name="opt01" id="opt01" class="form-check-input" />
+                                <label class="form-check-label" for="opt01">Ajouter l'option 1</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" name="opt02" id="opt02" class="form-check-input" />
+                                <label class="form-check-label" for="opt02">Ajouter l'option 2</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 mb-2">
+                            <label class="form-label">Votre message</label>
+                            <textarea class="form-control" aria-label="Votre Message"></textarea>
+                        </div>
+                        <div class="col-12 mb-2">
+                            <button class="btn btn-sm btn-outline-success" type="submit">Envoyer</button>
+                            <button class="btn btn-sm btn-outline-warning" type="reset">Effacer</button>
+                            <button class="btn btn-sm btn-outline-secondary" type="button">Bouton</button>
+                        </div>
+                    </form>
+                    <script>
+                        /*
+                        les fonctions javascript auto-éxécutée :
+                        la forme : 
+                        ()();
+        
+                        ( la fonction anonyme a executer automatiquement )
+                        ( les attribus a envoyer à la fonction ci-dessus )
+                        */
+
+                        (() => {
+                            'use strict';
+                            const forms = document.querySelectorAll('.needs-validation');
+                            forms.forEach(form => {
+                                form.addEventListener('submit', (event) => {
+                                    if (!form.checkValidity()) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
+
+                                    form.classList.add('was-validated');
+                                }, false);
+                            })
+                        })
+                            ();
+                    </script>
+                </article>
+            </div>
+        </section>
+        <section class="row">
+            <header>
+                <h2>Les media</h2>
+            </header>
+            <div class="col-lg-3">
+                <article>
+                    <header>
+                        <h3>&lt;img&gt; et la classe img-fluid</h3>
+                    </header>
+                    <p>
+                        Pour rendre les media adaptatif, bootstrap propose des classes adaptées.
+                    </p>
+                    <p>
+                        Pour les images, il existe la classe <code>img-fluid</code>, elle affiche l'image dans son
+                        ratio, d'une taille inférieure à sa taille totale et ce jusqu'à sa taille totale. Équilant à
+                        <code>width: 100%</code> en CSS.
+                    </p>
+                    <figure>
+                        <img class="img-fluid"
+                            src="./images/Adventures_with_Sherlock_Holmes_TD_Gallery_Jan_5-Mar_10,_2012.jpg" />
+                        <figcaption>
+                            Le message codé envoyé par Fred Porlock à Sherlock Holmes l'informant du Meurtre futur d'un
+                            certain Douglas à Birlstone.
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+            <div class="col-lg-3">
+                <article>
+                    <header>
+                        <h3>&lt;picture&gt; et img-fluid</h3>
+                    </header>
+                    <p>
+                        Il est aussi possible de combiner cette classe et la balise picture
+                    </p>
+                    <figure>
+                        <picture>
+                            <source srcset="./images/james-white-composite-800w.png" media="(min-width: 820px)" />
+                            <source srcset="./images/james-white-composite-400w.png" media="(min-width: 420px)" />
+                            <img class="img-fluid rounded" src="./images/james-white-composite-200w.png" />
+                        </picture>
+                    </figure>
+                </article>
+            </div>
+            <div class="col-lg-6">
+                <article>
+                    <header>
+                        <h3>La flottaison</h3>
+                    </header>
+                    <p class="clearfix">
+                        <img src="./images/batman-un-long-halloween-cover-art.jpg"
+                            class="img-thumbnail img-fluid float-start" style="max-width: 100px;" />
+                        <img src="./images/DC-Comics-Batman-Caped-Crusader-official-cardboard-cutout-buy-now-at-starstills__04189.1582849820.jpg"
+                            class="img-thumbnail img-fluid float-end" style="max-width: 100px;" />
+                        Il est possible d'utiliser une classe qui met les images en mode "vignette", avec une petite
+                        bordure blanche autour et aussi de faire "flotter" cette vignette à gauche avec "float-start" ou
+                        à droite avec "float-end"
+                    </p>
+                    <p>
+                        On peut aussi centrer l'image à l'aide de la classe "mx-auto" et "d-block"
+                    </p>
+                    <img src="./images/batman-b-timm-b-w.png" class="img-thumbnail mx-auto d-block img-fluid"
+                        style="max-width: 250px;" />
+                </article>
+            </div>
+            <div class="col-lg-6">
+                <article>
+                    <header>
+                        <h3>Les vidéos externes</h3>
+                    </header>
+                    <p>
+                        Dans le cas de vidéo hébergée sur une site tier, tels que youtube, viméo ou dailymotion, il
+                        faudra
+                        selon certain cas faire quelques ajustement.
+                    </p>
+                    <p>
+                        Les vidéos sont partagées grace à une balise <code>&lt;iframe&gt;</code> qui permet d'importer
+                        dans
+                        la page une autre page. Sur les sité d'hébergement de vidéos, une page particulière est
+                        partageable
+                        via une iframe, la vidéo est ensuite appelée dedans.
+                    </p>
+                    <h3>Youtube</h3>
+                    <p>
+                        Quand vous partager une vidéo youtube, vous obtenez généralement le code suivant :
+                    </p>
+                    <code><pre>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/j-Chh4SRjwE?si=uCwb_GBtQdvl2mHh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</pre></code>
+                    <p>
+                        Il est donc interressant d'utiliser une iframe mais qui sera encapsulée dans un conteneur, une
+                        figure, et à cette figure on ajoute deux classes bootstrap : ratio et ratio-16x9 par exemple
+                        pour
+                        une vidéo 16 / 9<sup>ème</sup>
+                    </p>
+                    <p>
+                        Dans cette figure, il suffit de coller l'iframe donnée par youtube en retirant les attributs
+                        width
+                        et height
+                    </p>
+                    <figure class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/j-Chh4SRjwE?si=uCwb_GBtQdvl2mHh"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </figure>
+                </article>
+            </div>
+            <div class="col-lg-6">
+                <article>
+                    <header>
+                        <h3>Les vidéos hébergées</h3>
+                    </header>
+                    <p>
+                        Pour les vidéos déjà hébergées sur le site, il suffit d'utiliser la classe <code></code>
+                    </p>
+                    <figure>
+                        <video class="img-fluid" src="./media/video/Fallout-4-Launch-Trailer.mp4" controls></video>
+                    </figure>
+                    <p>
+                        Il est possible de styliser avec bootstrap et un petit peu de javascript son propore lecteur vidéo
+                        intégré.
+                    </p>
+                    <div>
+                        <figure class="videoplayer">
+                            <div class="video-container mb-4">
+                                <video>
+                                    <source src="./media/video/Fallout-4-Launch-Trailer.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="custom-controls">
+                                    <button class="btn btn-light btn-sm playPauseBtn"><i
+                                            class="bi bi-play-fill"></i></button>
+                                    <input type="range" class="form-range progressRange" min="0" max="100" step="1"
+                                        value="0">
+                                    <button class="btn btn-light btn-sm muteBtn"><i
+                                            class="bi bi-volume-up-fill"></i></button>
+                                    <button class="btn btn-light btn-sm fullscreenBtn"><i
+                                            class="bi bi-fullscreen"></i></button>
+                                </div>
+                            </div>
+                            <figcaption>
+                                <h2 class="mb-3">Fallout 4 Trailer</h2>
+                                <p class="mb-4">
+                                    Le trailer de la sortie de Fallout 4 en 2015.
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-6">
+                <article>
+                    <header>
+                        <h3>Réutiliser le lecteur vidéo</h3>
+                    </header>
+                    <div>
+                        <figure class="videoplayer">
+                            <div class="video-container mb-4">
+                                <video>
+                                    <source src="./media/video/Big_Buck_Bunny_360_10s_1MB.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="custom-controls">
+                                    <button class="btn btn-light btn-sm playPauseBtn"><i
+                                            class="bi bi-play-fill"></i></button>
+                                    <input type="range" class="form-range progressRange" min="0" max="100" step="1"
+                                        value="0">
+                                    <button class="btn btn-light btn-sm muteBtn"><i
+                                            class="bi bi-volume-up-fill"></i></button>
+                                    <button class="btn btn-light btn-sm fullscreenBtn"><i
+                                            class="bi bi-fullscreen"></i></button>
+                                </div>
+                            </div>
+                            <figcaption>
+                                <h2 class="mb-3">Fallout 4 Trailer</h2>
+                                <p class="mb-4">
+                                    Le trailer de la sortie de Fallout 4 en 2015.
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-6">
+                <article>
+                    <header>
+                        <h3>L'audio hébergé</h3>
+                    </header>
+                    <h4>Créer un lecteur audio</h4>
+                    <figure class="audio card">
+                        <div class="card-body">
+                            <img src="./images/diablo-1-reportedly-coming-to-pc-game-pass-v0-tcElq4S0HPfJ5luPz8RsSP9HBCBqxmS8fY0nPLODp3o.webp" class="img-fluid" style="object-fit: cover; height: 10vh; width: 100%;" />
+                        </div>
+                        <div class="card-footer">
+                            <figcaption>
+                                <audio src="./media/audio/diablo_town.mp3"></audio>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="currentTime">0:00</span>
+                                    <span class="duration">0:00</span>
+                                </div>
+                                <div class="text-center">
+                                    <button class="playPauseBtn btn btn-primary btn-sm">
+                                        <i class="bi bi-play-fill"></i>
+                                    </button>
+                                </div>
+                            </figcaption>
+                        </div>
+                    </figure>
+                    <figure class="audio card">
+                        <div class="card-body">
+                            <img src="./images/s-l1200.jpg" class="img-fluid" style="object-fit: cover; height: 10vh; width: 100%;" />
+                        </div>
+                        <div class="card-footer">
+                            <figcaption>
+                                <audio src="./media/audio/01 - Sure shot.mp3"></audio>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="currentTime">0:00</span>
+                                    <span class="duration">0:00</span>
+                                </div>
+                                <div class="text-center">
+                                    <button class="playPauseBtn btn btn-primary btn-sm">
+                                        <i class="bi bi-play-fill"></i>
+                                    </button>
+                                </div>
+                            </figcaption>
+                        </div>
+                    </figure>
+                    <script>
+                        const toto = new Audio('./media/audio/diablo_town.mp3');
+                        console.log(toto);    
+                        const test = 11;
+                        console.log(test);
+                        console.log(test.toString().padStart(4, '0'));
+                        console.log(test.toString().padEnd(4, '0'));
+                        
+                        console.log(typeof test);
+                        console.log(typeof (test+'0'));
+                        console.log(`${test} + ${45} = ${test+45}`);
+                        
+                    </script>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-body-tertiary py-2">
+        <div class="container">
+            &copy; DAWAN - 2025/10/27
+        </div>
+    </footer>
+    <script>
+        console.log('contenu chargé');
+        
+    </script>
+</body>
+
+</html>
