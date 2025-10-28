@@ -53,7 +53,267 @@
     </nav>
     <main class="container">
         <section class="row">
-            
+            <h1>Utiliser Bootstrap avec Sass</h1>
+            <div class="col-lg-6">
+                <h2>Structure des fichiers</h2>
+                <p>
+                    Premièrement, il faut récupérer les fichiers à l'adresse <a
+                        href="https://getbootstrap.com/docs/5.3/getting-started/download/" target="_blank">Source
+                        files</a>
+                </p>
+                <p>
+                    Pour pouvoir utiliser correctement sass et bootstrap, Bootstrap préconise de créer la strucutre de
+                    fichier suivante afin de travailler correctement avec sass
+                </p>
+                <p>
+                    Pour ne pas dénaturer les fichiers scss bootstrap, on sépare les sources venant de bootstrap dans un
+                    répertoire à part, node-modules, et on crée son fichier scss customisé dans un répertoire à la
+                    racine
+                    scss.
+                </p>
+                <p>
+                    Si vous avez installé bootstrap avec npm sur votre projet, la structure sera comme cela par défaut :
+                </p>
+                <code><pre>
+votre-projet/
+|── css/
+├── scss/
+│   |── custom-01.scss
+│   └── custom-02.scss
+└── node_modules/
+│   └── bootstrap/
+│       ├── js/
+│       └── scss/
+└── index.html
+</pre></code>
+
+                <h2>
+                    Customiser Bootstrap
+                    On reproduit l'arborescence que l'on aurait si on utilisait un gestionnaire de paquet tel que npm.
+                </h2>
+                <p>
+                    Il existe deux méthodes préconisées pour faire ceci,
+                </p>
+                <ul>
+                    <li>
+                        soit on part du boostrap dans sont entièreté et on ne fait qu'ajouter du css à la fin
+                    </li>
+                    <li>
+                        Soit on importe les fichiers nécessaire et on surcharge les variables et les map à des endroits
+                        précis, puis on ajoute son css customisé
+                    </li>
+                </ul>
+                <h3>
+                    Partir de boostrap
+                </h3>
+                <p>
+                    La marche à suivre et les imports nécéssaires sont indiqués dans le fichier custom-01.scss
+                </p>
+                <h3>
+                    Customisation totale
+                </h3>
+                <p>
+                    La marche à suivre et les imports nécéssaires sont indiqués dans le fichier custom-02.scss
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <h2>
+                    Compiler le css
+                </h2>
+                <p>
+                    Pour pouvoir compiler sass, il fait qu'il soit installé sur votre système.
+                    Le moyen le plus simple est d'utiliser npm.<br />
+                    Pour cela, il faut télcharger nodejs et l'installer, sous windows je préfère utiliser le .msi
+                </p>
+                <p>
+                    Une fois que c'est fait, dans votre projet il faut ouvrir un terminal.<br />
+                    vous pouvez vérifier les version de npm et nodejs en tapane les commandes suivantes :
+                </p>
+                <code><pre>
+# vérifier la version de npm
+npm -v #devrait retourner (à a date du 24/01/2025) v22.13.1
+"vérifier la version de nodejs"
+node -v #devrait retourner (à a date du 24/01/2025) v10.9.2
+</pre></code>
+                <p>
+                    Une fois que c'est OK, il faut installer sass, si vous travaillez régulièrement sur des projet qui
+                    utilisent sass, il est conseillé de l'installer globalement.
+                </p>
+                <p>
+                    Si sass est installé globalement, à chaque nouveau projet il sera utilisable directement sans avoir
+                    à refaire l'installation via le terminal pour chaque projet.
+                </p>
+                <p>
+                    Dans le terminal on écrit la commande suivante :
+                </p>
+                <code><pre>
+# installer sass globalement
+npm install -g sass
+                </pre></code>
+                <p>
+                    Enfin, pour compiler les fichiers sass en un fichier css, il faut utiliser des commandes.<br />
+                    <br />
+                    Vous pouvez :
+                </p>
+                <ul>
+                    <li>
+                        soit lancer la commande au besoin dans le terminal
+                    </li>
+                    <li>
+                        soit demander à sass de surveiller le fichier scss sur lequel vous travaillez, de fait, à chaque
+                        sauvegarde du fichier, sass lancera la compilation et surtout vous retournera les erreurs de
+                        compilation qui pourraient apparaîtres, vous aidant ainsi a rapidement débugger le script.
+                    </li>
+                </ul>
+                <h3>
+                    Compiler à la demande
+                </h3>
+                <p>
+                    Dans le cas par exemple du fichier custom-01.scss<br />
+                    <code>sass ./scss/custom-01.scss ./css/custom-01.css</code>
+                </p>
+                <p>
+                    Dans le cas par exemple du fichier custom-02.scss<br />
+                    <code>sass ./scss/custom-02.scss ./css/custom-02.css</code>
+                </p>
+                <h3>
+                    Surveiller le fichier et compilation à la sauvegarde
+                </h3>
+                <p>
+                    il suffit d'ajouter <code>--watch</code> entre sass et le fichier scss
+                </p>
+                <p>
+                    Dans le cas par exemple du fichier custom-01.scss<br />
+                    <code>sass --watch ./scss/custom-01.scss ./css/custom-01.css</code>
+                </p>
+                <p>
+                    Dans le cas par exemple du fichier custom-02.scss<br />
+                    <code>sass --watch ./scss/custom-02.scss ./css/custom-02.css</code>
+                </p>
+            </div>
+            <div class="col-lg-12">
+                <h2>
+                    Sass
+                </h2>
+                <p>
+                    Sass est donc un langage qui ressemble à du CSS mais qui va être compilé afin de générer le CSS
+                    final
+                    d'un site.
+                </p>
+                <p>
+                    Plutôt que d'écrire toutes les parties du CSS dans un seul fichier, on va séparer les différents
+                    éléments du CSS.
+                </p>
+                <p>
+                    Grace à la compilation, il sera possible d'écrire une boucle qui permettra de compiler toutes les
+                    itérations ou toutes les dérivation d'une classe.
+                </p>
+                <p>
+                    Par exemple, les classe alert et alert-* de bootstrap sont créées à l'aide d'une boucle
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <p>
+                    sass utilise la map suivante (_variables.scss) :
+                </p>
+                <code><pre>
+// scss-docs-start theme-colors-map
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark
+) !default;
+                        </pre></code>
+
+            </div>
+            <div class="col-lg-6">
+                <p>
+                    et compile la suite des différents étét des alert à l'aide de cette boucle (_alert.scss) :
+                </p>
+                <code><pre>
+// scss-docs-start alert-modifiers
+// Generate contextual modifier classes for colorizing the alert
+@each $state in map-keys($theme-colors) {
+.alert-#{$state} {
+        --#{$prefix}alert-color: var(--#{$prefix}#{$state}-text-emphasis);
+        --#{$prefix}alert-bg: var(--#{$prefix}#{$state}-bg-subtle);
+        --#{$prefix}alert-border-color: var(--#{$prefix}#{$state}-border-subtle);
+        --#{$prefix}alert-link-color: var(--#{$prefix}#{$state}-text-emphasis);
+    }
+}
+// scss-docs-end alert-modifiers
+                        </pre></code>
+            </div>
+            <p>
+                et cela donne le css suivant (custom-01.css) :
+            </p>
+            <div class="col-lg-6">
+                <code><pre>
+.alert-primary {
+    --bs-alert-color: var(--bs-primary-text-emphasis);
+    --bs-alert-bg: var(--bs-primary-bg-subtle);
+    --bs-alert-border-color: var(--bs-primary-border-subtle);
+    --bs-alert-link-color: var(--bs-primary-text-emphasis);
+    }
+
+.alert-secondary {
+    --bs-alert-color: var(--bs-secondary-text-emphasis);
+    --bs-alert-bg: var(--bs-secondary-bg-subtle);
+    --bs-alert-border-color: var(--bs-secondary-border-subtle);
+    --bs-alert-link-color: var(--bs-secondary-text-emphasis);
+}
+
+.alert-success {
+    --bs-alert-color: var(--bs-success-text-emphasis);
+    --bs-alert-bg: var(--bs-success-bg-subtle);
+    --bs-alert-border-color: var(--bs-success-border-subtle);
+    --bs-alert-link-color: var(--bs-success-text-emphasis);
+}
+.alert-info {
+    --bs-alert-color: var(--bs-info-text-emphasis);
+    --bs-alert-bg: var(--bs-info-bg-subtle);
+    --bs-alert-border-color: var(--bs-info-border-subtle);
+    --bs-alert-link-color: var(--bs-info-text-emphasis);
+}
+
+</pre></code>
+            </div>
+            <div class="col-lg-6">
+                <code><pre>
+.alert-warning {
+    --bs-alert-color: var(--bs-warning-text-emphasis);
+    --bs-alert-bg: var(--bs-warning-bg-subtle);
+    --bs-alert-border-color: var(--bs-warning-border-subtle);
+    --bs-alert-link-color: var(--bs-warning-text-emphasis);
+}
+
+.alert-danger {
+    --bs-alert-color: var(--bs-danger-text-emphasis);
+    --bs-alert-bg: var(--bs-danger-bg-subtle);
+    --bs-alert-border-color: var(--bs-danger-border-subtle);
+    --bs-alert-link-color: var(--bs-danger-text-emphasis);
+}
+
+.alert-light {
+    --bs-alert-color: var(--bs-light-text-emphasis);
+    --bs-alert-bg: var(--bs-light-bg-subtle);
+    --bs-alert-border-color: var(--bs-light-border-subtle);
+    --bs-alert-link-color: var(--bs-light-text-emphasis);
+}
+
+.alert-dark {
+    --bs-alert-color: var(--bs-dark-text-emphasis);
+    --bs-alert-bg: var(--bs-dark-bg-subtle);
+    --bs-alert-border-color: var(--bs-dark-border-subtle);
+    --bs-alert-link-color: var(--bs-dark-text-emphasis);
+}
+</pre></code>
+            </div>
         </section>
     </main>
     <footer class="bg-body-tertiary py-2">
