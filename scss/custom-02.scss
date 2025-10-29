@@ -28,18 +28,18 @@ $grid-breakpoints: map-merge($grid-breakpoints , $custom-grid-breakpoint);
 $container-max-widths: map-merge($container-max-widths , $custom-breakpoint );
 
 // 5 le reste des parties requises
-@import "../scss/bts/maps";
-@import "../scss/bts/mixins";
-@import "../scss/bts/root";
+@import "./bts/maps";
+@import "./bts/mixins";
+@import "./bts/root";
 
 // 6 ici les partials optionnels selon le besoin
-@import "../scss/bts/utilities";
-@import "../scss/bts/reboot";
-@import "../scss/bts/containers";
-@import "../scss/bts/grid";
+@import "./bts/utilities";
+@import "./bts/reboot";
+@import "./bts/containers";
+@import "./bts/grid";
 
 // 7 en option les utilitaires d'API pour générer les classes basées sur le map Sass sans utilities.scss
-@import "../scss/bts/utilities/api";
+@import "./bts/utilities/api";
 
 // 8. scss et css additionnel
 
