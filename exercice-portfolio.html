@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio card - Bootstrap Sass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/portfolio/style.css" />
+    <script src="./js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    <div class="container py-5">
+        <header class="text-center mb-5">
+            <h1>Mes projets</h1>
+            <p class="lead text-muted">
+                Découvrez mes réalisations récentes :
+            </p>
+        </header>
+        <main>
+            <section class="row">
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <article class="card card-portfolio">
+                        <img src="./images/diablo-1-reportedly-coming-to-pc-game-pass-v0-tcElq4S0HPfJ5luPz8RsSP9HBCBqxmS8fY0nPLODp3o.webp"
+                            class="card-img-top" />
+                        <div class="card-body">
+                            <h2 class="card-title">Diablo 1 sur les plateformes</h2>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, asperiores magni
+                                quasi nihil magnam suscipit error assumenda nulla optio laudantium eveniet rerum facere
+                                voluptate accusamus doloremque eum consectetur eligendi deleniti.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="mb-3 row">
+                                <span class="tech-badge col text-center">Réagir</span>
+                                <span class="tech-badge col text-center">Aimer</span>
+                                <span class="tech-badge col text-center">Republier</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#showArticle">lire la suite</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <article class="card card-portfolio">
+                        <img src="./images/batman-un-long-halloween-cover-art.jpg" class="card-img-top" />
+                        <div class="card-body">
+                            <h2 class="card-title">Un long halloween</h2>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, asperiores magni
+                                quasi nihil magnam suscipit error assumenda nulla optio laudantium eveniet rerum facere
+                                voluptate accusamus doloremque eum consectetur eligendi deleniti.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="mb-3 row">
+                                <span class="tech-badge col text-center">Réagir</span>
+                                <span class="tech-badge col text-center">Aimer</span>
+                                <span class="tech-badge col text-center">Republier</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#showArticle">lire la suite</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <article class="card card-portfolio">
+                        <img src="./images/batman-b-timm-b-w.png" class="card-img-top" />
+                        <div class="card-body">
+                            <h2 class="card-title">Le lore créé par Bruce Timm</h2>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, asperiores magni
+                                quasi nihil magnam suscipit error assumenda nulla optio laudantium eveniet rerum facere
+                                voluptate accusamus doloremque eum consectetur eligendi deleniti.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="mb-3 row">
+                                <span class="tech-badge col text-center">Réagir</span>
+                                <span class="tech-badge col text-center">Aimer</span>
+                                <span class="tech-badge col text-center">Republier</span>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#showArticle">lire la suite</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <button id="themeToggle" class="btn btn-secondary position-fixed bottom-0 end-0 m-4">Mode sombre</button>
+        </footer>
+    </div>
+    <div class="modal fade" id="showArticle" tabindex="-1" aria-labelledby="showArticleLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <article class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </article>
+        </div>
+    </div>
+</body>
+<script>
+    const buttonsRead = document.querySelectorAll('a[data-bs-toggle=modal]');
+    buttonsRead.forEach((buttonRead) => {
+        buttonRead.addEventListener('click', function (event) {
+            event.preventDefault();
+            const articleRead = this.parentNode.previousElementSibling;
+            const modalArticle = document.querySelector(`${this.dataset.bsTarget} .modal-body`);
+            console.log(modalArticle);
+            modalArticle.innerHTML = articleRead.innerHTML;
+            console.log(this.dataset.bsTarget);
+            console.log(this.parentNode);
+            console.log(this.parentNode.previousElementSibling );
+        });
+    });
+    
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+        const html = document.documentElement;
+        const theme = html.getAttribute('data-theme');
+        const newTheme = (theme === 'dark') ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+    });
+</script>
+
+</html>
