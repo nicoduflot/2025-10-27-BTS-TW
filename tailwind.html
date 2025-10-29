@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind</title>
+    <link rel="stylesheet" href="./css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="./css/tailwindcss/style.css" />
+    <script src="./js/tailwind-elements@1.js" type="module"></script>
+</head>
+
+<body>
+    <header class="bg-gray-900 text-gray-50">
+        <div class="px-2 container mx-auto flex flex-wrap justify-between items-baseline">
+            <div class="text-3xl font-bold underline site-title">Tailwind CSS</div>
+            <div>Introduction et mise en application</div>
+        </div>
+    </header>
+    
+    <nav class="relative bg-gray-900" role="navigation">
+        <div class="container px-2 mx-auto">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <!-- Mobile menu button-->
+                    <button type="button" command="--toggle" commandfor="mobile-menu" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Open main menu</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"  stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round"  stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-1 items-center justify-between sm:items-stretch sm:justify-start">
+                    <!--
+                    <div class="flex shrink-0 items-center">
+                        <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=blue&shade=500"
+                            alt="Your Company" class="h-8 w-auto" />
+                    </div>
+                    -->
+                    <div class="hidden sm:block">
+                        <div class="flex">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
+                            <a href="./index.html" aria-current="page"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-black hover:bg-white focus:text-black focus:bg-white focus:outline-0">Accueil</a>
+                            <a href="./tailwind.html"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-black hover:bg-white focus:text-black focus:bg-white focus:outline-0">Intro Tailwind</a>
+                            <a href="./tailwind-composants.html"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-black hover:bg-white focus:text-black focus:bg-white focus:outline-0">Composants</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <button type="button"
+                        class="relative rounded-full p-1 text-gray-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
+                        <span class="absolute -inset-1.5"></span>
+                        <span class="sr-only">View notifications</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                            aria-hidden="true" class="size-6">
+                            <path
+                                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                    <!-- Profile dropdown -->
+                    <el-dropdown class="relative ml-3">
+                        <button
+                            class="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                            <span class="absolute -inset-1.5"></span>
+                            <span class="sr-only">Open user menu</span>
+                            <img src="./images/diablo-1-reportedly-coming-to-pc-game-pass-v0-tcElq4S0HPfJ5luPz8RsSP9HBCBqxmS8fY0nPLODp3o.webp"
+                                alt=""
+                                class="size-8 rounded-full object-cover bg-gray-800 outline -outline-offset-1 outline-white/10" />
+                        </button>
+
+                        <el-menu anchor="bottom end" popover
+                            class="w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline outline-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Your
+                                profile</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Settings</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Sign
+                                out</a>
+                        </el-menu>
+                    </el-dropdown>
+                </div>
+            </div>
+        </div>
+
+        <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
+            <div class="space-y-1 px-2 pt-2 pb-3">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
+                <a href="./index.html" aria-current="page"
+                    class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Accueil</a>
+                <a href="./tailwind.html"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Intro Tailwind</a>
+                <a href="./tailwind-composants.html"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Composants</a>
+            </div>
+        </el-disclosure>
+    </nav>
+    <main class="px-2 container mx-auto">
+        <header>
+            <h1 class="text-3xl"><i class="bi bi-css"></i> Installation et lancement</h1>
+        </header>
+        <section>
+            <header>
+                <h2 class="text-2xl">Installer Tailwind</h2>
+            </header>
+            <article>
+                <header>
+                    <h3 class="font-bold">Mode Client</h3>
+                </header>
+                <p>
+                    Il est possible d'installer tailwind sur différents frameworks.
+                </p>
+                <p>
+                    Dans ce projet, nous allons l'installer sur un projet sans framework, en utilisant Tailwint CLI
+                </p>
+                <ol class="list-decimal list-inside">
+                    <li>Il faut utiliser un terminal et se rendre à la racine du projet.</li>
+                    <li>Une fois à cet endroit, il faut utiliser npm pour laner la commande suivante : <code> npm install tailwindcss @tailwindcss/cli</code></li>
+                    <li>Dans le projet, prévoir un fichier css d'entrée, par exemple à cet endroit : <code>./src/tailwind/intput.css, sur lequel on inscrit la ligne suivante :</code></li>
+                </ol>
+                <pre>
+                    <code>
+@import "tailwindcss";
+                    </code>
+                </pre>
+            </article>
+        </section>
+        <section>
+            <header>
+                <h2 class="text-2xl">Lancement</h2>
+            </header>
+            <article>
+                <header>
+                    <h3 class="font-bold">npx</h3>
+                </header>
+                <ol class="list-decimal list-inside" start="4">
+                    <li>A nouveau dans le terminal, on va lui demander de "surveiller" le fichier input, et d'écrire le css compilé par tailwind sur un autre fichier css, ici il sera dans ./src/css/style.css, en utilisant la commande suivante : npx @tailwindcss/cli -i ./src/tailwind/input.css -o ./src/css/style.css --watch</li>
+                    <li>Une fois lancé, le terminal va recompiler le css à chaque fois que les fichiers dans lesquels sont lié le fichier style.css seront sauvegardés. Il ajoutera le CSS final dans ce fichier, selon les classes écrite dans le fichier HTML.</li>
+                </ol>
+                <pre>
+                    <code>
+&lt;!doctype html&gt&gt;
+    &lt;html lang="fr"&gt&gt;
+        &lt;head&gt&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;link href="./src/css/style.css" rel="stylesheet"&gt;
+        &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class="text-3xl font-bold underline"&gt;Hello world!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                    </code>
+                </pre>
+            </article>
+            <article>
+                <header>
+                    <h3 class="font-bold">Attacher le fichier de sortie</h3>
+                </header>
+                <p>
+                    Il suffit ensuite d'attacher le fichier de sortie à la page qui doit appliquer le CSS généré par Tailwind, quand on "surveille" le fichier d'entrée, Tailwind surveille aussi le fichier qui appelle le fichier de sortie. Tout changement dans le fichier HTML ou le fichier de d'entrée va relancer la compilation du fichier de sortie.
+                </p>
+            </article>
+        </section>
+        <header>
+            <h2 class="text-2xl">Modèle colonne Vs Modèle Grille</h2>
+        </header>
+        <section class="pb-3 columns-1 lg:columns-2 xl:columns-3 gap-1">
+            <header>
+                <h3 class="font-bold">Utiliser les colonnes</h3>
+            </header>
+            <article class="my-1 rounded-sm p-2 border border-gray-90 break-inside-avoid-column">
+                <header>
+                    <h4 class="font-bold">La classe columns<i>-&lt;nombre&gt;</i></h4>
+                </header>
+                <p>
+                    En utilisant la classe <code>columns-x</code> (<i>où x est le nombre de colonnes désiré</i>), on va
+                    définir le nombre d'éléments dans l'odre des affichage d'écran, en commençant par l'affichage
+                    smartphone et en remontant jusqu'aux écrans plus larges.
+                </p>
+                <code>
+                    &lt;section class="my-1 <mark>columns-1 lg:columns-2 xl:columns-3</mark> gap-1"&gt;
+                </code>
+            </article>
+            <article class="my-1 rounded-sm p-2 border border-gray-900 break-inside-avoid-column">
+                <header>
+                    <h4 class="font-bold">La classe break<i>-&lt;options&gt;</i></h4>
+                </header>
+                <p>
+                    Demander des colonnes va, par défaut, "casser" les éléments pour qu'ils aient tous la même hauteur.
+                    Pour éviter cela, il faudra ajouter par exemple aux éléments à l'intérieur la classe
+                    <code>break-inside-avoid-column</code>
+                </p>
+                <code>
+                    &lt;article class="rounded-sm p-2 border border-gray-900 <mark>break-inside-avoid-column</mark>"&gt;
+                </code>
+            </article>
+            <article class="my-1 rounded-sm p-2 border border-gray-900 break-inside-avoid-column">
+                <header>
+                    <h4 class="font-bold">Gérer le gap horizontal</h4>
+                </header>
+                <p>
+                    On applique la classe <code>gap-x<i>-&lt;nombre&gt;</i></code> à l'élément qui va contenir les
+                    éléments de la grille, selon la valeur ajoutée, on jouera sur l'espace horizontal entre les éléments
+                    à l'intérieur.
+                </p>
+                <code>
+                    &lt;section class="my-1 columns-1 lg:columns-2 xl:columns-3 <mark>gap-1</mark>"&gt;
+                </code>
+            </article>
+            <article class="my-1 rounded-sm p-2 border border-gray-900 break-inside-avoid-column">
+                <header>
+                    <h4 class="font-bold">Gérer le gap vertical</h4>
+                </header>
+                <p>
+                    Avec le système <code>columns</code>, la classe <code>gap</code> ne contrôle que l'espacement
+                    horizontal entre les colonnes (l'équivalent de <code>column-gap</code> en CSS).
+                </p>
+                <p>
+                    Il faut pour cela régler ajouter la classe <code>gap-1</code> au conteneur et une classe de marge
+                    extérieure basse <code>mb-1</code> ou <code>my-1</code> par exemple pour établir un gap vertical.
+                </p>
+                <code>
+                    &lt;article class="<mark>my-1</mark>rounded-sm p-2 border border-gray-900 break-inside-avoid-column"&gt;
+                </code>
+            </article>
+            <article class="my-1 rounded-sm p-2 border border-gray-900 break-inside-avoid-column">
+                <header>
+                    <h4 class="font-bold">Pas de <code>span</code></h4>
+                </header>
+                <p>
+                    Le système de colonnes dans Tailwind CSS (<code>columns-*</code>) est basé sur la propriété CSS
+                    <code>columns</code>, qui est conçue pour créer des mises en page de type magazine/journal avec du
+                    contenu qui s'écoule naturellement d'une colonne à l'autre. Ce n'est pas un système de grille.
+                </p>
+                <h4>Le problème</h4>
+                <p>
+                    Le système <code>columns</code> ne permet pas de faire "span" un élément sur plusieurs colonnes de
+                    la même manière que Grid. C'est une limitation du CSS multi-column layout lui-même, pas de Tailwind.
+                </p>
+            </article>
+        </section>
+    </main>
+    <footer class="bg-gray-900 text-gray-50">
+        <div class="px-2 container mx-auto">&copy; DAWAN 2025/10/29</div>
+    </footer>
+</body>
+
+</html>

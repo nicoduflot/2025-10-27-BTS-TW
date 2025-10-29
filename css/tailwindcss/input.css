@@ -1,0 +1,22 @@
+@import "tailwindcss";
+/*@import url('../LazenbyCompSmooth.css');*/
+@import url('../roboto.css');
+
+@font-face {
+    font-family: 'LazenbyCompSmooth';
+    src: url('../fonts/LazenbyCompSmooth.ttf') format('truetype');
+}
+
+@theme{
+    --font-sans: 'roboto';
+    --font-serif: 'Times New Roman';
+    --font-mono: 'Courier New';
+}
+
+p, ul, ol, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+}
+
+.site-title{
+    font-family: 'LazenbyCompSmooth';
+}
