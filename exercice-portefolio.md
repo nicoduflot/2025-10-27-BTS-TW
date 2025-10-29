@@ -22,6 +22,13 @@ Carte portfolio personnalisé en utilisant la méthode custom-01 et en surcharge
 ### Pour les warriors
 
 * Ajouter un bouton de changement de thème ( clair /sombre ) (a faire en JS)
+* Ne pas utiliser row > col mais une grille 1, 2 (md) puis 3 (lg)
+
+### Défis :
+
+* **Animation au chargement** : avec `@keyframes`, apparition progressive des cards (type fade)
+* **Étendre le mode dark à la modal**
+
 
 ## Mockup
 ![Mockup de l'exercice](./scss/portfolio/mockup.png "mockup écran, tablette et smartphone" )
