@@ -1,11 +1,10 @@
 @import "tailwindcss";
 /*@import url('../LazenbyCompSmooth.css');*/
 @import url('../roboto.css');
-
-@font-face {
-    font-family: 'LazenbyCompSmooth';
-    src: url('../fonts/LazenbyCompSmooth.ttf') format('truetype');
-}
+/* import des composants */
+@import './components/columns.css';
+@import './components/buttons.css';
+@import './LazenbyCompSmooth.css';
 
 @theme{
     --font-sans: 'roboto';

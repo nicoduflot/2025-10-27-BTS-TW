@@ -1,0 +1,267 @@
+@theme{
+    --size-col-1 : calc(( 1/12)*100%);
+    --size-col-2 : calc(( 2/12)*100%);
+    --size-col-3 : calc(( 3/12)*100%);
+    --size-col-4 : calc(( 4/12)*100%);
+    --size-col-5 : calc(( 5/12)*100%);
+    --size-col-6 : calc(( 6/12)*100%);
+    --size-col-7 : calc(( 7/12)*100%);
+    --size-col-8 : calc(( 8/12)*100%);
+    --size-col-9 : calc(( 9/12)*100%);
+    --size-col-10: calc((10/12)*100%);
+    --size-col-11: calc((11/12)*100%);
+    --size-col-12: calc((12/12)*100%);
+}
+
+@utility row-col-*{
+    width: --value(--size-col-*);
+}
+
+/* déclarer une ligne */
+.row{
+    @apply flex flex-wrap;
+}
+
+/* colonne 1 / 12 */
+.bts-col-1{
+    @apply row-col-1 mb-2 px-1;
+}
+/* colonne 2 / 12 */
+.bts-col-2{
+    @apply row-col-2 mb-2 px-1;
+}
+/* colonne 3 / 12 */
+.bts-col-3{
+    @apply row-col-3 mb-2 px-1;
+}
+/* colonne 4 / 12 */
+.bts-col-4{
+    @apply row-col-4 mb-2 px-1;
+}
+/* colonne 5 / 12 */
+.bts-col-5{
+    @apply row-col-5 mb-2 px-1;
+}
+/* colonne 6 / 12 */
+.bts-col-6{
+    @apply row-col-6 mb-2 px-1;
+}
+/* colonne 7 / 12 */
+.bts-col-7{
+    @apply row-col-7 mb-2 px-1;
+}
+/* colonne 8 / 12 */
+.bts-col-8{
+    @apply row-col-8 mb-2 px-1;
+}
+/* colonne 9 / 12 */
+.bts-col-9{
+    @apply row-col-9 mb-2 px-1;
+}
+/* colonne 10 / 12 */
+.bts-col-10{
+    @apply row-col-10 mb-2 px-1;
+}
+/* colonne 11 / 12 */
+.bts-col-11{
+    @apply row-col-11 mb-2 px-1;
+}
+/* colonne 12 / 12 */
+.bts-col-11{
+    @apply row-col-12 mb-2 px-1;
+}
+
+/* responsive */
+@media (width >= 40rem) {
+    .sm\:bts-col-1{
+        @apply row-col-1;
+    }
+    .sm\:bts-col-2{
+        @apply row-col-2;
+    }
+    .sm\:bts-col-3{
+        @apply row-col-3;
+    }
+    .sm\:bts-col-4{
+        @apply row-col-4;
+    }
+    .sm\:bts-col-5{
+        @apply row-col-5;
+    }
+    .sm\:bts-col-6{
+        @apply row-col-6;
+    }
+    .sm\:bts-col-7{
+        @apply row-col-7;
+    }
+    .sm\:bts-col-8{
+        @apply row-col-8;
+    }
+    .sm\:bts-col-9{
+        @apply row-col-9;
+    }
+    .sm\:bts-col-10{
+        @apply row-col-10;
+    }
+    .sm\:bts-col-11{
+        @apply row-col-11;
+    }
+    .sm\:bts-col-12{
+        @apply row-col-12;
+    }
+}
+
+@media (width >= 48rem) {
+    .md\:bts-col-1{
+        @apply row-col-1;
+    }
+    .md\:bts-col-2{
+        @apply row-col-2;
+    }
+    .md\:bts-col-3{
+        @apply row-col-3;
+    }
+    .md\:bts-col-4{
+        @apply row-col-4;
+    }
+    .md\:bts-col-5{
+        @apply row-col-5;
+    }
+    .md\:bts-col-6{
+        @apply row-col-6;
+    }
+    .md\:bts-col-7{
+        @apply row-col-7;
+    }
+    .md\:bts-col-8{
+        @apply row-col-8;
+    }
+    .md\:bts-col-9{
+        @apply row-col-9;
+    }
+    .md\:bts-col-10{
+        @apply row-col-10;
+    }
+    .md\:bts-col-11{
+        @apply row-col-11;
+    }
+    .md\:bts-col-12{
+        @apply row-col-12;
+    }
+}
+
+@media (width >= 64rem) {
+    .lg\:bts-col-1{
+        @apply row-col-1;
+    }
+    .lg\:bts-col-2{
+        @apply row-col-2;
+    }
+    .lg\:bts-col-3{
+        @apply row-col-3;
+    }
+    .lg\:bts-col-4{
+        @apply row-col-4;
+    }
+    .lg\:bts-col-5{
+        @apply row-col-5;
+    }
+    .lg\:bts-col-6{
+        @apply row-col-6;
+    }
+    .lg\:bts-col-7{
+        @apply row-col-7;
+    }
+    .lg\:bts-col-8{
+        @apply row-col-8;
+    }
+    .lg\:bts-col-9{
+        @apply row-col-9;
+    }
+    .lg\:bts-col-10{
+        @apply row-col-10;
+    }
+    .lg\:bts-col-11{
+        @apply row-col-11;
+    }
+    .lg\:bts-col-12{
+        @apply row-col-12;
+    }
+}
+
+@media (width >= 80rem) {
+    .xl\:bts-col-1{
+        @apply row-col-1;
+    }
+    .xl\:bts-col-2{
+        @apply row-col-2;
+    }
+    .xl\:bts-col-3{
+        @apply row-col-3;
+    }
+    .xl\:bts-col-4{
+        @apply row-col-4;
+    }
+    .xl\:bts-col-5{
+        @apply row-col-5;
+    }
+    .xl\:bts-col-6{
+        @apply row-col-6;
+    }
+    .xl\:bts-col-7{
+        @apply row-col-7;
+    }
+    .xl\:bts-col-8{
+        @apply row-col-8;
+    }
+    .xl\:bts-col-9{
+        @apply row-col-9;
+    }
+    .xl\:bts-col-10{
+        @apply row-col-10;
+    }
+    .xl\:bts-col-11{
+        @apply row-col-11;
+    }
+    .xl\:bts-col-12{
+        @apply row-col-12;
+    }
+}
+@media (width >= 96rem) {
+    .xxl\:bts-col-1{
+        @apply row-col-1;
+    }
+    .xxl\:bts-col-2{
+        @apply row-col-2;
+    }
+    .xxl\:bts-col-3{
+        @apply row-col-3;
+    }
+    .xxl\:bts-col-4{
+        @apply row-col-4;
+    }
+    .xxl\:bts-col-5{
+        @apply row-col-5;
+    }
+    .xxl\:bts-col-6{
+        @apply row-col-6;
+    }
+    .xxl\:bts-col-7{
+        @apply row-col-7;
+    }
+    .xxl\:bts-col-8{
+        @apply row-col-8;
+    }
+    .xxl\:bts-col-9{
+        @apply row-col-9;
+    }
+    .xxl\:bts-col-10{
+        @apply row-col-10;
+    }
+    .xxl\:bts-col-11{
+        @apply row-col-11;
+    }
+    .xxl\:bts-col-12{
+        @apply row-col-12;
+    }
+}
