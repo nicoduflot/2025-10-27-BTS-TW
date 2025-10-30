@@ -36,7 +36,7 @@
 }
 /* colonne 4 / 12 */
 .bts-col-4{
-    @apply row-col-4 yb-2 px-1;
+    @apply row-col-4 my-2 px-1;
 }
 /* colonne 5 / 12 */
 .bts-col-5{

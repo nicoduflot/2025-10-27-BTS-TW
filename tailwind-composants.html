@@ -133,11 +133,12 @@
                 </p>
                 <pre class="overflow-x-auto">
 @layer components {
-  .btn {
+  @utility btn {
     @apply px-4 py-2 rounded font-semibold transition duration-200;
   }
 
   .btn-primary {
+    @apply btn;
     background-color: var(--color-blue-500);
     color: var(--color-white);
     &:hover {
@@ -149,7 +150,7 @@
 }
                 </pre>
                 <p>
-                    <button class="btn btn-primary">Bouton</button>
+                    <button class="btn-primary">Bouton</button>
                 </p>
                 <div class="row">
                     <div class="bts-col-1 lg:bts-col-6 xl:bts-col-4">
